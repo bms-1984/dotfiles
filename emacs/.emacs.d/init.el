@@ -19,6 +19,7 @@
 (use-package magit)
 (use-package geiser)
 (use-package flycheck)
+(use-package pinentry)
 (use-package company)
 (pinentry-start)
 (setq scheme-program-name "guile")
@@ -27,8 +28,6 @@
 (setq geiser-active-implementations '(guile))
 (setq explicit-shell-file-name "/home/bms/.guix-profile/bin/zsh")
 (setq vc-follow-symlinks nil)
-
-(load "~/.emacs.d/nasm-mode")
 
 (add-hook 'emacs-lisp-mode-hook                  'all-lisp-hooks)
 (add-hook 'eval-expression-minibuffer-setup-hook 'all-lisp-hooks)
