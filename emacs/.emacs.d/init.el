@@ -26,7 +26,7 @@
 (setq inferior-lisp-program "sbcl")
 (setq desktop-save-mode t)
 (setq geiser-active-implementations '(guile))
-(setq explicit-shell-file-name "/home/bms/.guix-profile/bin/zsh")
+(setq explicit-shell-file-name "/bin/zsh")
 (setq vc-follow-symlinks nil)
 
 (add-hook 'emacs-lisp-mode-hook                  'all-lisp-hooks)
