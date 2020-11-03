@@ -1,0 +1,8 @@
+[user]
+	name = Ben M. Sutter
+	email = sutterb3@udayton.edu
+	signingkey = 7DF45F83453E4C916F99FF338D1CF0514662F612
+[commit]
+	gpgsign = true
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe

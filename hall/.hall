@@ -1,0 +1,4 @@
+(author . "Ben M. Sutter")
+(prefix . "guile")
+(website . "")
+(license . gpl3+)

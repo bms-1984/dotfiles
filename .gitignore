@@ -1,0 +1,9 @@
+emacs/.emacs.d/elpa
+emacs/.emacs.d/transient
+emacs/.emacs.d/auto-save-list
+emacs/.emacs.d/straight
+*~
+*.elc
+gnupg/.gnupg/private*
+gnupg/.gnupg/pubring.kbx
+gnupg/.gnupg/trustdb.gpg
