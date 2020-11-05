@@ -11,7 +11,7 @@ typeset -TUx LIBRARY_PATH library_path
 typeset -TUx C_INCLUDE_PATH c_include_path
 typeset -TUx CPLUS_INCLUDE_PATH cplus_include_path
 
-path=($HOME/.local/bin $path)
+path=($HOME/.local/cross/sbin $HOME/.local/cross/bin $HOME/.local/sbin $HOME/.local/bin $path)
 
 # zsh plugins
 plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent github gitignore common-aliases emacs git-prompt git-flow mosh )
