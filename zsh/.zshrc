@@ -27,4 +27,4 @@ alias g++="ccache g++"
 alias c++="ccache c++"
 
 # fixes zsh history files if they become corrupted
-histfix
+# histfix
