@@ -46,6 +46,7 @@
 						       (sh-set-shell "zsh"))))
 (add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
 (add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . sh-mode))
+(add-to-list 'auto-mode-alist '("\\.liz\\'" . lisp-mode))
 
 (defun all-lisp-hooks ()
   "Called for all lisp or scheme hooks"

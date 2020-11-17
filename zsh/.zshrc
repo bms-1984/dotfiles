@@ -14,7 +14,7 @@ typeset -TUx CPLUS_INCLUDE_PATH cplus_include_path
 path=($HOME/.local/cross/sbin $HOME/.local/cross/bin $HOME/.local/sbin $HOME/.local/bin $path)
 
 # zsh plugins
-plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent github gitignore common-aliases emacs git-prompt git-flow mosh )
+plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent github gitignore common-aliases emacs git-prompt git-flow)
 . $ZSH/oh-my-zsh.sh
 
 # emacs alias points here anyway
@@ -25,6 +25,4 @@ alias gcc="ccache gcc"
 alias cc="ccache cc"
 alias g++="ccache g++"
 alias c++="ccache c++"
-
-# fixes zsh history files if they become corrupted
-# histfix
+alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
