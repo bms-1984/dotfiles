@@ -11,3 +11,31 @@ alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
 
 alias -s {c,h,s,S,lisp,liz}=emacs
 
+stocal() {
+    cd $HOME
+    sudo stow --target=/usr/local --ignore='share' --ignore='cross' .local
+    echo Done.
+    cd - > /dev/null
+}
+
+upgrade() {
+    sudo pacman -Syu --noconfirm
+    for file in $AURDIR/*(/); do
+        echo Checking $file for updates.
+        cd $file
+        if ! gl
+        then
+            makepkg -si
+        fi
+	cd -
+    done
+    upgrade_ohl_my_zsh
+    echo Done.
+}
+
+push() {
+    gaa
+    gcmsg "$1"
+    gp
+    echo Done.
+}
