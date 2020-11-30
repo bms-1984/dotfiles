@@ -4,8 +4,10 @@ plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions g
 . $ZSH/oh-my-zsh.sh
 
 export EDITOR="emacs"
+export AURDIR=$HOME/.aurbuild
 
 alias gcc="ccache gcc"
 alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
 
 alias -s {c,h,s,S,lisp,liz}=emacs
+
