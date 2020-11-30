@@ -3,14 +3,6 @@ export ZSH="/home/bms/.oh-my-zsh"
 ZSH_THEME="bms"
 
 typeset -TUx PATH path
-typeset -TUx EMACSLOADPATH emacsloadpath
-typeset -TUx INFOPATH infopath
-typeset -TUx XDG_DATA_DIRS xdg_data_dirs
-typeset -TUx ACLOCAL_PATH aclocal_path
-typeset -TUx LIBRARY_PATH library_path
-typeset -TUx C_INCLUDE_PATH c_include_path
-typeset -TUx CPLUS_INCLUDE_PATH cplus_include_path
-
 path=($HOME/.local/sbin $HOME/.local/bin $path)
 
 # zsh plugins
