@@ -1,4 +1,4 @@
-#zsh home directory and custom theme
+# zsh home directory and custom theme
 export ZSH="/home/bms/.oh-my-zsh"
 ZSH_THEME="bms"
 
@@ -11,10 +11,10 @@ typeset -TUx LIBRARY_PATH library_path
 typeset -TUx C_INCLUDE_PATH c_include_path
 typeset -TUx CPLUS_INCLUDE_PATH cplus_include_path
 
-path=($HOME/.local/cross/sbin $HOME/.local/cross/bin $HOME/.local/sbin $HOME/.local/bin $path)
+path=($HOME/.local/sbin $HOME/.local/bin $path)
 
 # zsh plugins
-plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent github gitignore common-aliases emacs git-prompt git-flow)
+plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent common-aliases emacs git-prompt)
 . $ZSH/oh-my-zsh.sh
 
 # emacs alias points here anyway
@@ -26,3 +26,5 @@ alias cc="ccache cc"
 alias g++="ccache g++"
 alias c++="ccache c++"
 alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
+
+alias -s {c,h,s,S,lisp,liz}=emacs
