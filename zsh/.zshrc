@@ -2,9 +2,6 @@
 export ZSH="/home/bms/.oh-my-zsh"
 ZSH_THEME="bms"
 
-typeset -TUx PATH path
-path=($HOME/.local/sbin $HOME/.local/bin $path)
-
 # zsh plugins
 plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent common-aliases emacs git-prompt)
 . $ZSH/oh-my-zsh.sh
