@@ -12,10 +12,8 @@ alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
 alias -s {c,h,s,S,lisp,liz}=emacs
 
 stocal() {
-    cd $HOME
-    sudo stow --target=/usr/local --ignore='share' --ignore='cross' .local
+    sudo stow --target=/usr/local --ignore='share' --ignore='cross' --dir=$HOME .local
     echo Done.
-    cd - > /dev/null
 }
 
 upgrade() {
@@ -27,7 +25,7 @@ upgrade() {
         then
             makepkg -si
         fi
-	cd -
+	cd - > /dev/null
     done
     upgrade_ohl_my_zsh
     echo Done.
