@@ -4,11 +4,15 @@ plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions g
 . $ZSH/oh-my-zsh.sh
 
 export EDITOR="emacs"
-export AURDIR=$HOME/.aurbuild
-export DLDIR=$HOME/.store/dl
-export SOUNDDIR=$HOME/.store/sound
-export IMGDIR=$HOME/.store/img
-export DOCDIR=$HOME/.store/docs
+export STORE=$HOME/.store
+export AURDIR=$STORE/aur
+export DLDIR=$STORE/dl
+export SOUNDDIR=$STORE/sound
+export IMGDIR=$STORE/img
+export DOCDIR=$STORE/docs
+export VIDDIR=$STORE/vid
+export WAREDIR=$STORE/ware
+export PROJDIR=$STORE/projects
 
 alias gcc="ccache gcc"
 alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
