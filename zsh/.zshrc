@@ -45,3 +45,8 @@ push() {
     gp
     echo Done.
 }
+
+rm~() {
+    find . -depth -name "*~" -print -delete
+    echo Done.
+}
