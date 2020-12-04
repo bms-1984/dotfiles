@@ -36,7 +36,7 @@ upgrade() {
         fi
 	cd - > /dev/null
     done
-    upgrade_oh_my_zsh
+    omz update
     upgrade_oh_my_zsh_custom
     echo Done.
 }
