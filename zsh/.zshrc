@@ -17,7 +17,8 @@ export projdir=$store/projects
 alias gcc="ccache gcc"
 alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
 
-alias -s {c,h,s,S,lisp,liz}=emacs
+alias -s {c,h,s,S,lisp,liz,el}=emacs
+alias -s conf=nano
 
 stocal() {
     sudo stow --target=/usr/local --ignore='share' --ignore='cross' --dir=$HOME .local
