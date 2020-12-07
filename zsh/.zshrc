@@ -1,9 +1,10 @@
 export ZSH="/home/bms/.oh-my-zsh"
 ZSH_THEME="bms"
-plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent common-aliases emacs git-prompt)
+plugins=(you-should-use autoupdate zsh-syntax-highlighting zsh-autosuggestions git colored-man-pages command-not-found cp gpg-agent ssh-agent common-aliases git-prompt)
 . $ZSH/oh-my-zsh.sh
 
-export EDITOR="emacs"
+export VISUAL=emacsclient
+export EDITOR=emacsclient
 export store=$HOME/.store
 export aurdir=$store/aur
 export dldir=$store/dl
@@ -17,8 +18,7 @@ export projdir=$store/projects
 alias gcc="ccache gcc"
 alias x86_64-elf-gcc="ccache x86_64-elf-gcc"
 
-alias -s {c,h,s,S,lisp,liz,el}=emacs
-alias -s conf=nano
+alias -s {c,h,s,S,lisp,liz,el,conf}=emacsclient
 
 stocal() {
     sudo stow --target=/usr/local --ignore='share' --ignore='cross' --dir=$HOME .local
