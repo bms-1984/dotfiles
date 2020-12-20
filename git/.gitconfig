@@ -1,6 +1,6 @@
 [user]
-	name = Ben Sutter
-	email = benjaminsutter@aurora-schools.org
+	name = Ben M. Sutter
+	email = benjaminsutter@outlook.com
 	signingkey = FA69B21AF1B2CF08049B97E718D05CE5DA834B41
 [commit]
 	gpgsign = true
