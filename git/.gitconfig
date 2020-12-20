@@ -1,7 +1,7 @@
 [user]
-	name = Ben M. Sutter
-	email = sutterb3@udayton.edu
-	signingkey = 7DF45F83453E4C916F99FF338D1CF0514662F612
+	name = Ben Sutter
+	email = benjaminsutter@aurora-schools.org
+	signingkey = FA69B21AF1B2CF08049B97E718D05CE5DA834B41
 [commit]
 	gpgsign = true
 [pull]
