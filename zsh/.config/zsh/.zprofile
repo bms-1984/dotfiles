@@ -14,7 +14,7 @@ alias lt="ls --sort=time"
 alias lat="ls --color -la --sort=time"
 
 alias rh='fc -R'
-
+alias sbcl="rlwrap sbcl"
 alias emacs="emacs -mm"
 
 export EDITOR=emacs
