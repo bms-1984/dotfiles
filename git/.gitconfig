@@ -1,0 +1,30 @@
+[user]
+        name = Ben Sutter
+        email = 14796185+bms-1984@users.noreply.github.com
+        signingkey = 9241E7807564358D17DD6D5E097E4FFCF62EA575
+[commit]
+        gpgsign = true
+[init]
+        defaultBranch = master
+[pager]
+        diff = delta
+        log = delta
+        reflog = delta
+        show = delta
+[delta]
+        plus-style = "syntax #012800"
+        minus-style = "syntax #340001"
+        syntax-theme = Monokai Extended
+        navigate = true
+[interactive]
+        diffFilter = delta --color-only
+[color]
+        ui = true
+[core]
+        autocrlf = input
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
