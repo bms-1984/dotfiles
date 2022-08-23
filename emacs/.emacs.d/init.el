@@ -42,6 +42,7 @@
   #'(add-hook 'flycheck-mode-hook (lambda ()
 				   (flycheck-color-mode-line-mode)
 				   (flycheck-pos-tip-mode))))
+(add-to-list 'default-frame-alist '(fullscreen . fullboth)) 
 
 (setq epg-pinentry-mode 'loopback)
 (pinentry-start)

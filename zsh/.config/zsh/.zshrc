@@ -1,61 +1,29 @@
-. $ZDOTDIR/gh.zsh
-
-# few terminal keybinds
-bindkey -e
-
-typeset -A key
-
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-key[Insert]=${terminfo[kich1]}
-key[Delete]=${terminfo[kdch1]}
-key[Up]=${terminfo[kcuu1]}
-key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
-key[PageUp]=${terminfo[kpp]}
-key[PageDown]=${terminfo[knp]}
-
-# setup key accordingly
-[[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode
-[[ -n "${key[Delete]}"  ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"      ]]  && bindkey  "${key[Up]}"      up-line-or-history
-[[ -n "${key[Down]}"    ]]  && bindkey  "${key[Down]}"    down-line-or-history
-[[ -n "${key[Left]}"    ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
-
-# Finally, make sure the terminal is in application mode, when zle is
-# active. Only then are the values from $terminfo valid.
-if [[ -n ${terminfo[smkx]} ]] && [[ -n ${terminfo[rmkx]} ]]; then
-    function zle-line-init () {
-        echoti smkx
-    }
-    function zle-line-finish () {
-        echoti rmkx
-    }
-    zle -N zle-line-init
-    zle -N zle-line-finish  
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-zle -N fake-enter; bindkey "^X^H" fake-enter
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' frequency 1
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+COMPLETION_WAITING_DOTS="true"
 
-unsetopt correct_all
+plugins=(git github command-not-found colorize cp gpg-agent history  archlinux systemd history-sync fast-syntax-highlighting zsh-autocomplete \
+	autoupdate copyzshell dircolors-solarized-zsh send solarized-man emacs)
 
-# colors
-autoload -U colors
-colors
+DIRCOLORS_SOLARIZED_ZSH_THEME="256dark"
+ZSH_CUSTOM_AUTOUPDATE_QUIET=true
+source $ZSH/oh-my-zsh.sh
+source $ZDOTDIR/gh.zsh
 
-autoload run-help
-
-#cdpath=(. ~)
 DIRSTACKSIZE=60
-
-# Autoload zsh functions.
 fpath=($ZDOTDIR/functions $fpath)
 autoload -U $ZDOTDIR/functions/*(:t)
-
 fignore=(\~)
 
 LISTMAX=0
@@ -71,7 +39,10 @@ watch=(all)
 WATCHFMT='%n %a %l from %m at %t.'
 WORDCHARS="${WORDCHARS:s#/#}"
 
-# zsh options
+export ZSH_HISTORY_FILE=$HISTFILE
+export ZSH_HISTORY_PROJ=$HOME/.zhistory
+export ZSH_HISTORY_FILE_ENC=$HOME/.zhistory/zhistory.gpg
+
 setopt \
   auto_cd \
   multios \
@@ -83,8 +54,6 @@ setopt \
   no_beep \
   cdable_vars \
   csh_null_glob \
-  correct \
-  correct_all \
   extended_glob \
   extended_history \
   no_glob_dots \
@@ -111,68 +80,5 @@ setopt \
   hist_ignore_space \
   no_equals \
 
-# modules
-autoload -U url-quote-magic bracketed-paste-magic
-zle -N self-insert url-quote-magic
-zle -N bracketed-paste bracketed-paste-magic
-
-# Enable auto-execution of functions.
-unset preexec_functions
-unset precmd_functions
-unset chpwd_functions
-typeset -ga preexec_functions
-typeset -ga precmd_functions
-typeset -ga chpwd_functions
-
-# Terminal title
-if [[ "$TERM" == xterm* ]] ; then
-  preexec_functions+='preexec_term_title'
-  precmd_functions+='precmd_term_title'
-fi
-
-# prompt
-if [[ "$USER" == "root" ]] ; then
-	PROMPT=$'%B%F{red}%n%b%F{default}@%B%F{cyan}%m%b%F{default}:%B%F{blue}%~%b%F{default}%F{default} %(?.-.%F{red}%?%F{default})%(!.%F{red}#%F{default}.%F{green}$%F{default}) '
-else
-	autoload -Uz vcs_info
-	precmd_vcs_info() { vcs_info }
-	precmd_functions+=( precmd_vcs_info)
-	setopt prompt_subst
-	RPROMPT=\$vcs_info_msg_0_
-	zstyle ':vcs_info:git:*' formats '%F{240}(%b) %r%f'
-	zstyle ':vcs_info:*' enable git
-	PROMPT='(%B%(?.%F{green}%?%f.%F{red}%?%f)%b) %B%n%b:%F{blue}%~%f  %B%#%b '
-fi
-
-# tab-completion
-autoload -Uz compinit
-[[ -d "${ZDOTDIR:-$HOME}/.zcompdumps" ]] || mkdir -m 0700 -p "${ZDOTDIR:-$HOME}/.zcompdumps"
-compinit -i -d "${ZDOTDIR:-$HOME}/.zcompdumps/${HOST%%.*}-$ZSH_VERSION"
-
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*' menu select=4
-zstyle ':completion::complete:cd::' tag-order '! users' -
-zstyle ':completion::complete:-command-::' tag-order '! users' -
-
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
-zstyle -e ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX + $#SUFFIX) / 3 )) )'
-zstyle ':completion:*:descriptions' format "- %d -"
-zstyle ':completion:*:corrections' format "- %d - (errors %e})"
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*:manuals' separate-sections true
-zstyle ':completion:*:manuals.(^1*)' insert-sections true
-zstyle ':completion:*' menu select
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*:kill:*:processes' command "ps x"
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-zstyle ':completion:*' special-dirs true
-
-_comp_options=("${(@)_comp_options:#NO_ignoreclosebraces}")
-
-[[ -e ~/.shfuncs ]] && source ~/.shfuncs
-
-setopt notify
-
+# To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
+[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
