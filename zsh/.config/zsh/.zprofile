@@ -6,7 +6,7 @@ export VISUAL=$EDITOR
 typeset -TUx PATH path
 typeset -TUx INFOPATH infopath
 typeset -TUx MANPATH manpath
-path=($HOME/.local/bin $HOME/.local/sbin $path)
+path=(/usr/lib/ccache/bin $HOME/.local/bin $HOME/.local/sbin $path)
 infopath=($HOME/.local/share/info /usr/local/share/info /usr/share/info $infopath)
 manpath=($HOME/.local/share/man /usr/local/share/man /usr/share/man $manpath)
 
@@ -22,9 +22,4 @@ silent () {
 hsync () {
     history_sync_pull
     printf "Ben\ny\ny\ny\n" | history_sync_push
-}
-
-update () {
-    sudo pacman -Syu
-    upgrade_oh_my_zsh_all
 }
