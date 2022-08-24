@@ -11,8 +11,6 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
-(setq inhibit-startup-screen t)
-(setq initial-scratch-message nil)
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
 (use-package nasm-mode)
@@ -42,7 +40,7 @@
   #'(add-hook 'flycheck-mode-hook (lambda ()
 				   (flycheck-color-mode-line-mode)
 				   (flycheck-pos-tip-mode))))
-(add-to-list 'default-frame-alist '(fullscreen . fullboth)) 
+(add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
 (setq epg-pinentry-mode 'loopback)
 (pinentry-start)
@@ -84,17 +82,10 @@
 						   (c-toggle-hungry-state)
 						   (flycheck-mode)))
 (add-hook 'sh-mode-hook                          (lambda ()
-						   (if (or (string-match "\\.zsh$" buffer-file-name)
-							   (string-match "\\.zsh-theme$" buffer-file-name)
-							   (string-match "\\.zshenv$" buffer-file-name)
-							   (string-match "\\.zshrc$" buffer-file-name))
-						       (sh-set-shell "zsh"))
+						   (hs-minor-mode)
+						   (semantic-mode)
 						   (flycheck-mode)))
 (add-to-list 'auto-mode-alist '("\\.asm\\'" . nasm-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zsh-theme\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zshrc\\'" . sh-mode))
-(add-to-list 'auto-mode-alist '("\\.zshenv\\'" . sh-mode))
 
 (defun all-lisp-hooks ()
   "Called for all geiser hooks"
@@ -159,6 +150,9 @@
 (add-hook 'window-setup-hook 'delete-other-windows)
 (fset 'yes-or-no-p 'y-or-n-p)
 (setf dired-kill-when-opening-new-dired-buffer t)
+
+(setq inhibit-startup-screen t)
+(setq initial-scratch-message nil)
 
 (when (fboundp 'next-buffer)            
   (global-set-key (kbd "C-c ,") 'previous-buffer)     

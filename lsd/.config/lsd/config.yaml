@@ -1,0 +1,6 @@
+layout: oneline
+sorting:
+  dir-grouping: first
+total-size: true
+# TODO: aarch64 aur package for lsd
+# hyperlink: auto

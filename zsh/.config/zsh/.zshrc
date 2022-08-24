@@ -9,12 +9,13 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 zstyle ':omz:update' frequency 1
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(git github command-not-found colorize cp gpg-agent history  archlinux systemd history-sync fast-syntax-highlighting zsh-autocomplete \
-	autoupdate copyzshell dircolors-solarized-zsh send solarized-man emacs)
+plugins=(git github command-not-found colorize cp gpg-agent \
+	     history archlinux systemd history-sync autoupdate \
+	     copyzshell dircolors-solarized-zsh send \
+	     solarized-man emacs zsh-autosuggestions \
+	     zsh-aliases-lsd fast-syntax-highlighting)
 
 DIRCOLORS_SOLARIZED_ZSH_THEME="256dark"
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true
@@ -80,5 +81,7 @@ setopt \
   hist_ignore_space \
   no_equals \
 
+eval $(gpg-connect-agent --quiet /bye)
+  
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
