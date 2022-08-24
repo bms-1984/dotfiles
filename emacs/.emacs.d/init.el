@@ -20,6 +20,7 @@
 (use-package paxedit)
 (use-package magit)
 (use-package flycheck)
+(use-package flycheck-pkg-config)
 (use-package macrostep)
 (use-package sly-macrostep)
 (use-package company)
