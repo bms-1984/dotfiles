@@ -12,7 +12,8 @@ manpath=($HOME/.local/share/man /usr/local/share/man /usr/share/man $manpath)
 
 alias sbcl="rlwrap sbcl"
 alias src="exec zsh"
-alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
+alias zshrc="$EDITOR $ZDOTDIR/.zshrc &"
+alias zpr="$EDITOR $ZDOTDIR/.zprofile &"
 alias make="remake"
 
 silent () {
