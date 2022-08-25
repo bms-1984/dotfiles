@@ -43,6 +43,9 @@
 				   (flycheck-pos-tip-mode))))
 (add-to-list 'default-frame-alist '(fullscreen . fullboth))
 
+(defalias 'list-buffers 'ibuffer)
+(defalias 'exit 'kill-emacs)
+
 (setq epg-pinentry-mode 'loopback)
 (pinentry-start)
 
