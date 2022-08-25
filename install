@@ -1,0 +1,11 @@
+#!/bin/sh
+
+echo "I'm going to install Benji's dotfiles for you."
+
+for d in */ ; do
+    echo "Dotfiles for $d will be installed to $(dirname $(pwd))."
+    stow "$d"
+    test $? -eq 0 || echo "Stow failed for some reason, I'll probably do some better error reporting eventually.";
+done
+
+echo Done.

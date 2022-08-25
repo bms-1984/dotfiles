@@ -1,0 +1,10 @@
+* TODO Add package checking/installation to install script
+pacman, brew
+* TODO Create my preferred home directory organization in install script
+~/Sources/{Build{/Aur},Personal}, &c, &c
+* TODO OS specifics
+I'm currently assuming an Arch-based system, but I should add macOS also
+* TODO Submodule my OMZ setup
+* TODO Move settings set in graphical applications here to the greatest extent possible
+* TODO Write a proper README
+please Ben do it for once come on man i really mean it this is important to you
