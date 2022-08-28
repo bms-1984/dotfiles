@@ -1,16 +1,18 @@
-* TODO Add package checking/installation to install script :meta:
-pacman, brew
-* TODO Otherwise fill out install script :meta:
-* TODO Create my preferred home directory organization in install script :meta:
-~/Sources/{Build{/Aur},Personal}, &c, &c
-* TODO Move settings set in graphical applications here to the greatest extent possible :meta:
-* TODO OS specifics :meta:
-I'm currently assuming an Arch-based system, but I should add macOS al
-* TODO Write a proper README :meta:
-please ben do it for once come on man i really mean it this is important to you
-* TODO Submodule my OMZ setup :zsh:
-* TODO Complete reorganization and splitting of zshrc and zprofile :zsh:
-* TODO Complete reorganization and splitting of init.el :emacs:
-* TODO Import a few modules by default :guile:
+* TODO Add package checking/installation to install script [0/2]       :meta:
+** TODO pacman
+** TODO brew
+* TODO Move settings set in graphical applications here to the greatest extent possible [0/2] :meta:
+** TODO macOS [0/2]
+*** TODO iTerm
+*** TODO System
+** TODO KDE [0/2]
+*** TODO Konsole
+*** TODO System
+* TODO macOS Support                                                   :meta:
+* TODO Write a proper README                                           :meta:
+* DONE Submodule my OMZ setup                                           :zsh:
+* TODO Complete reorganization and splitting of zshrc and zprofile      :zsh:
+* TODO Complete reorganization and splitting of init.el               :emacs:
+* DONE Import a few modules by default                                :guile:
 
 

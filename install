@@ -1,11 +1,152 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "I'm going to install Benji's dotfiles for you."
+echo "I'm going to install Benji's dotfiles for you. You'll be asked for root permission a few times most likely."
+
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=linux;;
+    Darwin*)    machine=mac;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
+
+if [ "$machine" == "linux" ]; then
+    type pacman >/dev/null 2>&1 || { echo >&2 "Please run this on an Arch-based system (i.e. pacman is installed)."; exit 1; }
+elif [ "$machine" == "mac" ]; then
+    # type brew >/dev/null 2>&1 || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "MacOS isn't supported yet."; exit 1;
+else
+    echo "$machine is not supported."; exit 1;
+fi
+
+MAKEFLAGS=-j$(nproc)
+MAKE="make $MAKEFLAGS"
+PREFIX=$HOME/.local
+TARGET="$(uname -m)-$(uname -p)-$machine"
+
+mkdir -pv "$HOME/Sources/{Build,Personal}"
+SRC="$HOME/Sources"
+BUILD="$SRC/Build"
+[[ "$machine" == "linux" ]] && {
+    mkdir -pv "$BUILD/Aur"
+    echo "Updating system."
+    sudo pacman -Syu
+    echo Done.
+    echo "Installing packages."
+    sudo pacman -Sy                            \
+	 cppcheck ccache git-delta             \
+	 github-cli lsd openssh rlwrap stow    \
+	 pkgconf make automake autoconf gcc    \
+	 binutils texinfo gettext gmp mpfr mpc \
+	 libtool m4 flex bison guile mailutils \
+	 perl patch zsh remake gnupg sbcl "${EXTRA_PACKAGES-}"
+    echo Done.
+
+    export PATH="$HOME/.local/bin:$HOME/.local/sbin:$PATH"
+    
+    pushd "$BUILD" || exit 1
+    # install from source
+    
+    # BINUTILS -----------------------------------------------
+    echo "Installing binutils."
+    git clone git://sourceware.org/git/binutils-gdb.git binutils-git
+    mkdir -pv binutils-git/build
+    pushd binutils-git/build || exit 1
+    ../configure \
+	--prefix="$PREFIX" --build="$TARGET" --enable-gold --enable-ld \
+	--enable-gprofng --enable-compressed-debug-sections=all --enable-year2038 \
+	--enable-lto --enable-host-shared --enable-vtable-verify --enable-shared \
+	--disable-static --enable-plugins --enable-checking --enable-secure-plt --enable-separate-code \
+	--enable-build-warnings --enable-install-libbfd --disable-nls --with-pic --with-mmap --with-gnu-ld \
+	--enable-follow-debug-links --enable-fast-install --enable-source-highlight --enable-tui --enable-profiling \
+	--enable-threading --enable-gdb-build-warnings --enable-ubsan --enable-libbacktrace --with-expat \
+	--with-mpfr --with-guile --with-lzma --enable-threads=posix --enable-default-hash-style=gnu \
+	--enable-jansson --enable-relro --enable-gprofng-debug --enable-error-handling-script --disable-multilib \
+	--enable-decimal-float --enable-install-libiberty --enable-multibyte --with-curses --disable-sim "${BINUTILS_FLAGS-}"
+    $MAKE
+    $MAKE install
+    popd || exit 1 # BINUTILS
+    echo Done.
+
+    # GCC -----------------------------------------------
+    echo "Installing gcc."
+    git clone git://gcc.gnu.org/git/gcc.git gcc-git
+    mkdir -pv gcc-git/build
+    pushd gcc-git/build || exit 1
+    ../configure \
+	--prefix-"$PREFIX" --build="$TARGET" --enable-lto \
+	--disable-nls --enable-host-shared --enable-shared --disable-static --enable-vtable-verify \
+	--enable-default-pie --enable-twoprocess --enable-checking=all --enable-valgrind-annotations \
+	--disable-multilib --disable-multiarch --enable-decimal-float --enable-languages=c,c++ --enable-fast-install \
+	--enable-standard-branch-protection --enable-plugin --with-pic --with-linker-hash-style=gnu \
+	--with-diagnostics-color=always --with-diagnostics-urls=always "${GCC_FLAGS-}"
+    $MAKE
+    $MAKE install
+    popd || exit 1 # GCC
+    echo Done,
+
+    # EMACS -----------------------------------------------
+    echo "Installing emacs."
+    git clone git://git.sv.gnu.org/emacs.git emacs-git
+    pushd emacs-git || exit 1
+    ./autogen.sh
+    ./configure \
+	--prefix="$PREFIX" --build="$TARGET" --enable-link-time-optimization \
+	--with-sound=alsa --with-json --with-native-compilation --disable-static \
+	--enable-shared "${EMACS_FLAGS-}"
+    $MAKE
+    $MAKE install
+    popd || exit 1 # EMACS
+    echo Done.
+    
+    # GUILE ------------------------------------------------
+    echo "Installing guile."
+    git clone https://git.sv.gnu.org/git/guile.git guile-git
+    pushd guile-git || exit 1
+    ./autogen.sh
+    ./configure \
+	--prefix="$PREFIX" --build="$TARGET" --enable-lto \
+	--enable-fast-install --enable-shared --disable-static \
+	--enable-jit --disable-nls --disable-deprecated \
+	--with-gnu-ld --with-pic --with-threads "${GUILE_FLAGS-}"
+    $MAKE
+    $MAKE install
+    popd || exit 1 # GUILE
+    echo Done.
+
+    # GUILE-COLORIZED ------------------------------------------------
+    echo "Installing guile-colorized."
+    git clone git@gitlab.com:NalaGinrut/guile-colorized.git guile-colorized-git
+    pushd guile-colorized-git || exit 1
+    $MAKE
+    popd || exit 1 # GUILE-COLORIZED
+    echo Done.
+
+    # SBCL -----------------------------------------------
+    echo "Installing sbcl."
+    git clone git://git.code.sf.net/p/sbcl/sbcl sbcl-git
+    pushd sbcl-git || exit 1
+    sh make.sh --prefix="$PREFIX" --fancy "{$SBCL_FLAGS-}"
+    pushd doc/manual || exit 1
+    $MAKE
+    popd || exit 1
+    sh install.sh
+    popd || exit 1 # SBCL
+    echo Done.
+    
+    popd || exit 1
+    echo "Changing default shell."
+    chsh -s "/bin/zsh"
+    echo Done.
+}
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+rm -rf "$HOME/.zshrc"
 
 for d in */ ; do
-    echo "Dotfiles for $d will be installed to $(dirname $(pwd))."
+    echo "Dotfiles for $d will be installed to $(dirname "$(pwd)")."
     stow "$d"
-    test $? -eq 0 || echo "Stow failed for some reason, I'll probably do some better error reporting eventually.";
+    test $? -eq 0 || { echo >&2 "Stow failed for some reason, I'll probably do some better error reporting eventually."; exit 1; }
+    echo Done.
 done
 
 echo Done.

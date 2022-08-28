@@ -90,9 +90,10 @@
 						   (semantic-mode)
 						   (flycheck-mode)))
 (add-to-list 'auto-mode-alist '("\\.asm\\'" . nasm-mode))
+(add-to-list 'auto-mode-alist '("\\.guile\\'" . scheme-mode))
 
 (defun all-lisp-hooks ()
-  "Called for all geiser hooks"
+  "Called for all geiser hooks."
   (rainbow-delimiters-mode)
   (require 'eldoc)
   (eldoc-mode t)
@@ -131,21 +132,21 @@
 
 (defun electrify-return-if-match (arg)
   "If the text after the cursor matches `electrify-return-match' then
-  open and indent an empty line between the cursor and the text.  Move the
-  cursor to the new line."
+open and indent an empty line between the cursor and the text.  Move the
+cursor to the new line."
   (interactive "P")
   (let ((case-fold-search nil))
     (if (looking-at electrify-return-match)
 	(save-excursion (newline-and-indent)))
     (newline arg)
-    (indent-according-to-mode)))    
+    (indent-according-to-mode)))
 
 (setq-default message-log-max nil)
 (kill-buffer "*Messages*")
 (kill-buffer "*straight-process*")
 
-(add-hook 'minibuffer-exit-hook 
-      '(lambda ()
+(add-hook 'minibuffer-exit-hook
+      #'(lambda ()
          (let ((buffer "*Completions*"))
            (and (get-buffer buffer)
             (kill-buffer buffer)))))
@@ -153,24 +154,16 @@
 (setq inhibit-startup-buffer-menu t)
 (add-hook 'window-setup-hook 'delete-other-windows)
 (fset 'yes-or-no-p 'y-or-n-p)
-(setf dired-kill-when-opening-new-dired-buffer t)
-
+(setq dired-kill-when-opening-new-dired-buffer t)
 (setq inhibit-startup-screen t)
 (setq initial-scratch-message nil)
 
-(when (fboundp 'next-buffer)            
-  (global-set-key (kbd "C-c ,") 'previous-buffer)     
-  (global-set-key (kbd "C-c .") 'next-buffer))        
+(when (fboundp 'next-buffer)
+  (global-set-key (kbd "C-c ,") 'previous-buffer)
+  (global-set-key (kbd "C-c .") 'next-buffer))
 (load-theme 'solarized-dark t)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files '("~/.dotfiles/TODO.org")))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq org-agenda-files '("~/.dotfiles/TODO.org"))
+(provide 'init)
+;;; init.el ends here
+
+
