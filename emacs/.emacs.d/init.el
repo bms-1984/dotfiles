@@ -37,6 +37,8 @@
 (use-package macrostep-geiser)
 (use-package macrostep-geiser)
 
+(setq native-comp-async-report-warnings-errors nil)
+
 (eval-after-load "flycheck"
   #'(add-hook 'flycheck-mode-hook (lambda ()
 				   (flycheck-color-mode-line-mode)
@@ -62,7 +64,7 @@
 (setq explicit-shell-file-name "/bin/zsh")
 (setq vc-follow-symlinks nil)
 (setq Info-directory-list (cons "~/.local/share/info" Info-directory-list))
-(setq inferior-lisp-program "sbcl")
+(setq inferior-lisp-program "~/.local/bin/sbcl")
 (setq geiser-guile-binary "~/.local/bin/guile")
 (setq scheme-program-name "guile")
 (setq geiser-active-implementations '(guile))
@@ -149,7 +151,10 @@ cursor to the new line."
       #'(lambda ()
          (let ((buffer "*Completions*"))
            (and (get-buffer buffer)
-            (kill-buffer buffer)))))
+		(kill-buffer buffer)))
+	 (let ((buffer "*Async-native-compile-log*"))
+	   (and (get-buffer buffer)
+		(kill-buffer buffer)))))
 
 (setq inhibit-startup-buffer-menu t)
 (add-hook 'window-setup-hook 'delete-other-windows)

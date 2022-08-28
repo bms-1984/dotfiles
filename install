@@ -73,7 +73,7 @@ mkdir -pv "$BUILD"
     mkdir -pv gcc-git/build
     pushd gcc-git/build || exit 1
     ../configure \
-	--prefix-"$PREFIX" --build="$TARGET" --enable-lto \
+	--prefix="$PREFIX" --build="$TARGET" --enable-lto \
 	--disable-nls --enable-host-shared --enable-shared --disable-static --enable-vtable-verify \
 	--enable-default-pie --enable-twoprocess --enable-checking=all --enable-valgrind-annotations \
 	--disable-multilib --disable-multiarch --enable-decimal-float --enable-languages=c,c++ --enable-fast-install \
