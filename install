@@ -23,22 +23,22 @@ MAKE="make $MAKEFLAGS"
 PREFIX=$HOME/.local
 TARGET="$(uname -m)-$(uname -p)-$machine"
 
-mkdir -pv "$HOME/Sources/{Build,Personal}"
 SRC="$HOME/Sources"
 BUILD="$SRC/Build"
-[[ "$machine" == "linux" ]] && {
+mkdir -pv "$BUILD"
+[[ "$machine" == "linux" ]] && [[ -z "$SKIP_PACKAGES" ]] && {
     mkdir -pv "$BUILD/Aur"
     echo "Updating system."
-    sudo pacman -Syu
+    sudo pacman -Syu --noconfirm --color=always
     echo Done.
     echo "Installing packages."
-    sudo pacman -Sy                            \
-	 cppcheck ccache git-delta             \
-	 github-cli lsd openssh rlwrap stow    \
-	 pkgconf make automake autoconf gcc    \
-	 binutils texinfo gettext gmp mpfr mpc \
-	 libtool m4 flex bison guile mailutils \
-	 perl patch zsh remake gnupg sbcl "${EXTRA_PACKAGES-}"
+    sudo pacman -S --noconfirm --needed --color=always \
+	 cppcheck ccache git-delta                     \
+	 github-cli lsd openssh rlwrap stow            \
+	 pkgconf make automake autoconf gcc            \
+	 binutils texinfo gettext gmp mpfr mpc         \
+	 libtool m4 flex bison guile mailutils         \
+	 perl patch zsh remake gnupg sbcl "${EXTRA_PACKAGES-sbcl}"
     echo Done.
 
     export PATH="$HOME/.local/bin:$HOME/.local/sbin:$PATH"
@@ -134,19 +134,26 @@ BUILD="$SRC/Build"
     echo Done.
     
     popd || exit 1
-    echo "Changing default shell."
+
+    echo "Changing default shell to zsh."
     chsh -s "/bin/zsh"
     echo Done.
+
+    # OH-MY-ZSH -----------------------------------------------
+    echo "Installing oh-my-zsh." 
+    sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    rm -rf "$HOME/.zshrc"
+    echo Done.
 }
+  
+shopt -s extglob
 
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-rm -rf "$HOME/.zshrc"
-
-for d in */ ; do
+for d in !(zsh-custom|zhistory)/ ; do
+    
     echo "Dotfiles for $d will be installed to $(dirname "$(pwd)")."
     stow "$d"
     test $? -eq 0 || { echo >&2 "Stow failed for some reason, I'll probably do some better error reporting eventually."; exit 1; }
     echo Done.
 done
 
-echo Done.
+echo All done.

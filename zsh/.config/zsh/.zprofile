@@ -15,6 +15,7 @@ alias src="exec zsh"
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc &"
 alias zpr="$EDITOR $ZDOTDIR/.zprofile &"
 alias make="remake"
+alias pacman="pacman --color=always"
 
 silent () {
   "$@" &>/dev/null </dev/null
