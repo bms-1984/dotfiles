@@ -1,1 +1,2 @@
-Assorted configurations
+* Benji's Dotfiles
+All my dotfiles are in here. To install on a fresh system, just run `install`.
