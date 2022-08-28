@@ -1,5 +1,8 @@
-* TODO Add package checking/installation to install script [0/2]       :meta:
-** TODO pacman
+* Benji's Dotfiles
+All my dotfiles are in here. To install on a fresh system, just run `install`.
+
+* TODO Add package checking/installation to install script [1/2]       :meta:
+** DONE pacman
 ** TODO brew
 * TODO Move settings set in graphical applications here to the greatest extent possible [0/2] :meta:
 ** TODO macOS [0/2]
