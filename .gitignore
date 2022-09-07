@@ -3,5 +3,8 @@ emacs/.emacs.d/*
 gnupg/.gnupg/*
 !gnupg/.gnupg/gpg.conf
 !gnupg/.gnupg/gpg-agent.conf
-zsh/.config/zsh/.history
-zsh/.config/zsh/.zcompdump-sutter-asahi-5.9
+zsh/.config/zsh/*
+!zsh/.config/zsh/.zshrc
+!zsh/.config/zsh/.zprofile
+!zsh/.config/zsh/.zshenv
+!zsh/.config/zsh/.p10k.zsh
