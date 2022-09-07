@@ -66,7 +66,7 @@
 (setq vc-follow-symlinks nil)
 (setq Info-directory-list (cons "~/.local/share/info" Info-directory-list))
 (setq inferior-lisp-program "~/.local/bin/sbcl")
-(setq geiser-guile-binary "~/.local/bin/guile")
+(setq geiser-guile-binary "/usr/bin/guile")
 (setq scheme-program-name "guile")
 (setq geiser-active-implementations '(guile))
 
