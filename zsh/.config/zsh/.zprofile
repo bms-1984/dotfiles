@@ -26,8 +26,3 @@ alias pacman="pacman --color=always"
 silent () {
   "$@" &>/dev/null </dev/null
 }
-
-hsync () {
-    history_sync_pull
-    printf "Ben\ny\ny\ny\n" | history_sync_push
-}

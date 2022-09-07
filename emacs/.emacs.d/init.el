@@ -10,6 +10,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
+(set-face-attribute 'default nil :height 227)
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)

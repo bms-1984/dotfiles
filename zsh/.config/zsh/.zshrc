@@ -13,7 +13,7 @@ zstyle ':omz:update' frequency 1
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(git github command-not-found colorize cp gpg-agent \
-	     history archlinux systemd history-sync autoupdate \
+	     history archlinux systemd autoupdate \
 	     copyzshell send solarized-man emacs zsh-autosuggestions \
 	     zsh-aliases-lsd fast-syntax-highlighting)
 
@@ -22,7 +22,6 @@ source $ZSH/oh-my-zsh.sh
 
 DIRSTACKSIZE=60
 fpath=($ZDOTDIR/functions $fpath)
-autoload -U $ZDOTDIR/functions/*(:t)
 fignore=(\~)
 
 LISTMAX=0
@@ -37,10 +36,6 @@ TIMEFMT='%J  %*U user %*S system %P cpu (%*E wasted time).'
 watch=(all)
 WATCHFMT='%n %a %l from %m at %t.'
 WORDCHARS="${WORDCHARS:s#/#}"
-
-export ZSH_HISTORY_FILE=$HISTFILE
-export ZSH_HISTORY_PROJ=$HOME/.dotfiles/zhistory
-export ZSH_HISTORY_FILE_ENC=$HOME/.dotfiles/zhistory/zhistory.gpg
 
 setopt \
   auto_cd \

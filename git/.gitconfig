@@ -1,7 +1,7 @@
 [user]
         name = Ben Sutter
         email = 14796185+bms-1984@users.noreply.github.com
-        signingkey = 9241E7807564358D17DD6D5E097E4FFCF62EA575
+        signingkey = 63A85E19824320F45B09CCC9576AB3A75195A3FD
 [commit]
         gpgsign = true
 [init]

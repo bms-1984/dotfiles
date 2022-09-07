@@ -1,0 +1,7 @@
+emacs/.emacs.d/*
+!emacs/.emacs.d/init.el
+gnupg/.gnupg/*
+!gnupg/.gnupg/gpg.conf
+!gnupg/.gnupg/gpg-agent.conf
+zsh/.config/zsh/.history
+zsh/.config/zsh/.zcompdump-sutter-asahi-5.9
