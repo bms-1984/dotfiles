@@ -1,0 +1,5 @@
+git_protocol: ssh
+editor: emacs
+prompt: enabled
+pager: less
+browser: firefox
