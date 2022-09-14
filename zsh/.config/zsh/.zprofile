@@ -20,8 +20,15 @@ alias sbcl="rlwrap sbcl"
 alias src="exec zsh"
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc &"
 alias zpr="$EDITOR $ZDOTDIR/.zprofile &"
+alias zenv="$EDITOR $ZDOTDIR/.zshenv &"
 alias make="remake"
 alias pacman="pacman --color=always"
+alias ssh="kitty +kitten ssh"
+alias icat="kitty +kitten icat"
+
+emacs () {
+    $HOME/.oh-my-zsh/plugins/emacs/emacsclient.sh $@ &
+}
 
 silent () {
   "$@" &>/dev/null </dev/null

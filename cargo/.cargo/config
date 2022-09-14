@@ -1,0 +1,5 @@
+[build]
+rustc-wrapper = "sccache"
+
+[target.aarch64-unknown-linux-gnu]
+rustflags = ["-C", "target-cpu=native"]
