@@ -96,6 +96,7 @@
 
 (defalias 'list-buffers 'ibuffer)
 (defalias 'exit 'kill-emacs)
+(defalias 'shell 'ansi-term)
 
 (setq native-comp-async-report-warnings-errors nil)
 (setq backup-directory-alist

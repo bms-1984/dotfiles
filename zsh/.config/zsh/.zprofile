@@ -25,9 +25,10 @@ alias make="remake"
 alias pacman="pacman --color=always"
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
+alias e="emacs"
 
 emacs () {
-    $HOME/.oh-my-zsh/plugins/emacs/emacsclient.sh $@ &
+    emacscheck.sh $@ &
 }
 
 silent () {

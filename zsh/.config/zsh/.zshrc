@@ -14,8 +14,8 @@ COMPLETION_WAITING_DOTS="true"
 
 plugins=(git github command-not-found colorize cp gpg-agent \
 	     history archlinux systemd autoupdate \
-	     copyzshell send solarized-man emacs zsh-autosuggestions \
-	     zsh-aliases-lsd fast-syntax-highlighting)
+	     send solarized-man zsh-autosuggestions zsh-aliases-lsd \
+	     fast-syntax-highlighting)
 
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true
 source $ZSH/oh-my-zsh.sh
