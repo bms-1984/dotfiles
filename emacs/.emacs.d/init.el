@@ -96,7 +96,6 @@
 
 (defalias 'list-buffers 'ibuffer)
 (defalias 'exit 'kill-emacs)
-(defalias 'shell 'ansi-term)
 
 (setq native-comp-async-report-warnings-errors nil)
 (setq backup-directory-alist
@@ -162,6 +161,11 @@
   (local-set-key (kbd "RET") 'electrify-return-if-match)
   (eldoc-add-command 'electrify-return-if-match)
   (show-paren-mode t))
+
+(defun shell ()
+  "Run \"ansi-term\" with zsh."
+  (interactive)
+  (ansi-term "/bin/zsh"))
 
 (provide 'init)
 ;;; init.el ends here

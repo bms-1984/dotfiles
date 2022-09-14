@@ -26,6 +26,7 @@ alias pacman="pacman --color=always"
 alias ssh="kitty +kitten ssh"
 alias icat="kitty +kitten icat"
 alias e="emacs"
+alias neofetch="neofetch --kitty --source $HOME/.arch.png"
 
 emacs () {
     emacscheck.sh $@ &
