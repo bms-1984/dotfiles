@@ -1,6 +1,5 @@
+###config.yaml was last modified on September 14, 2022 at 11:47 PM EDT by bms###
 layout: oneline
 sorting:
   dir-grouping: first
 total-size: true
-# TODO: aarch64 aur package for lsd
-# hyperlink: auto

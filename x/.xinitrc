@@ -1,4 +1,6 @@
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+#!/bin/sh 
+###.xinitrc was last modified on September 14, 2022 at 10:34 PM EDT by bms###
+if [ -f ~/.Xresources ] ; then xrdb -merge -I"$HOME" "$HOME/.Xresources"; fi
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
   [ -x "$f" ] && . "$f"

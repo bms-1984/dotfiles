@@ -1,5 +1,0 @@
-#!/bin/sh
-[ -f ~/.zshenv ] && . ~/.zshenv
-[ -f ~/.config/zsh/.zshenv ] && . ~/.config/zsh/.zshenv
-[ -f ~/.config/zsh/.zshrc ] && . ~/.config/zsh/.zshrc
-{ -f ~/.config/zsh/.zprofile ] && . ~/.config/zsh/.zprofile

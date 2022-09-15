@@ -1,3 +1,4 @@
+;;;; ###.guile was last modified on September 14, 2022 at 10:31 PM EDT by bms###
 (use-modules (ice-9 colorized))
 (activate-colorized)
 (use-modules (ice-9 readline))

@@ -1,21 +1,3 @@
-* Benji's Dotfiles
-All my dotfiles are in here. To install on a fresh system, just run `install`.
 
-* TODO Add package checking/installation to install script [1/2]       :meta:
-** DONE pacman
-** TODO brew
-* TODO Move settings set in graphical applications here to the greatest extent possible [0/2] :meta:
-** TODO macOS [0/2]
-*** TODO iTerm
-*** TODO System
-** TODO KDE [0/2]
-*** TODO Konsole
-*** TODO System
-* TODO macOS Support                                                   :meta:
-* TODO Write a proper README                                           :meta:
-* DONE Submodule my OMZ setup                                           :zsh:
-* TODO Complete reorganization and splitting of zshrc and zprofile      :zsh:
-* TODO Complete reorganization and splitting of init.el               :emacs:
-* DONE Import a few modules by default                                :guile:
-
-
+* BENJI'S DOTFILES
+These are my Arch Linux dotfiles.

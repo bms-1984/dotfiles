@@ -1,3 +1,4 @@
+###.gitignore was last modified on September 14, 2022 at 10:30 PM EDT by bms###
 emacs/.emacs.d/*
 !emacs/.emacs.d/init.el
 gnupg/.gnupg/*
@@ -5,6 +6,6 @@ gnupg/.gnupg/*
 !gnupg/.gnupg/gpg-agent.conf
 zsh/.config/zsh/*
 !zsh/.config/zsh/.zshrc
-!zsh/.config/zsh/.zprofile
+!zsh/.config/zsh/.zlogin
 !zsh/.config/zsh/.zshenv
 !zsh/.config/zsh/.p10k.zsh

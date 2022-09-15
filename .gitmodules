@@ -1,3 +1,4 @@
+###.gitmodules was last modified on September 14, 2022 at 10:30 PM EDT by bms###
 [submodule "zsh-custom/plugins/send"]
 	path = zsh-custom/plugins/send
 	url = https://github.com/robertzk/send.zsh.git
