@@ -1,7 +1,6 @@
-;;; init --- Summary:
 ;;;; personal init file
 ;;; Commentary:
-;;;; ###init.el was last modified on September 14, 2022 at 10:45 PM EDT by bms###
+;;;; ###init.el was last modified on September 16, 2022 at 07:49 PM EDT by bms###
 ;;; Code:
 (setenv "TZ" "EST+5EDT,M3.2.0/2,M11.1.0/2")
 
@@ -38,10 +37,11 @@
   :init                     (setq
 			     dap-auto-configure-features '(sessions locals controls tooltip))
   :hook                      lsp-mode)
-(use-package                 dired
-  :init                     (setq
-			     dired-kill-when-opening-new-dired-buffer t)
-  :straight                  nil)
+(use-package                 dirvish
+  :init                     (progn
+			      (setq
+			       dirvish-attributes '(vc-state file-size git-msg collapse all-the-icons subtree-state)))
+  :config                   (dirvish-override-dired-mode))
 (use-package                 eldoc
   :hook                    ((emacs-lisp-mode eval-expression-minibuffer-setup ielm-mode
 					     lisp-mode lisp-interaction-mode
@@ -51,6 +51,8 @@
   :config                   (when
 				(memq window-system '(mac ns x))
 			      (exec-path-from-shell-initialize)))
+(use-package                 fancy-compilation
+  :config                   (fancy-compilation-mode))
 (use-package                 flycheck
   :config                   (global-flycheck-mode))
 (use-package                 flycheck-color-mode-line
@@ -63,12 +65,23 @@
 (use-package                 flycheck-pos-tip
   :after                     flycheck
   :hook                     (flycheck-mode . flycheck-pos-tip-mode))
+(use-package                 forge
+  :after                     magit)
 (use-package                 geiser-guile
   :init                     (progn
 			      (setq
 			       geiser-guile-binary "/usr/bin/guile")
 			      (setq
 			       geiser-active-implementations '(guile))))
+(use-package                 helm
+  :init                     (progn
+			      (global-set-key (kbd "M-x") 'helm-M-x)
+			      (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
+			      (global-set-key (kbd "C-x C-f") 'helm-find-files))
+  :config                   (helm-mode))
+(use-package                 helm-make
+  :after                     helm
+  :init                     (global-set-key (kbd "C-c c c") 'helm-make))
 (use-package                 lsp-mode
   :init                     (setq
 			     lsp-keymap-prefix "C-c l"))
@@ -84,6 +97,9 @@
   :after                     macrostep
   :hook                     ((geiser-mode geiser-repl-mode) . macrostep-geiser-setup))
 (use-package                 magit)
+(use-package                 magit-todos
+  :after                     magit
+  :config                   (magit-todos-mode))
 (use-package                 nasm-mode
   :mode                   "\\.asm\\'")
 (use-package                 org
@@ -101,6 +117,9 @@
 			       (kbd "C-c l") 'org-store-link)
 			      (global-set-key 
 			       (kbd "C-c a") 'org-agenda)))
+(use-package                 org-bullets
+  :after                     org
+  :hook                      (org-mode . org-bullets-mode))
 (use-package                 ox-gfm
   :after                     org)
 (use-package                 paredit
@@ -135,7 +154,6 @@
 (set-face-attribute          'default                                 nil :height 227)
 
 (defalias                    'exit                                   'kill-emacs)
-(defalias                    'list-buffers                           'ibuffer)
 
 (setq                        time-stamp-pattern
 			    "8/###%f was last modified on %:B %02d, %Y at %02I:%02M %P %Z by %l###")
@@ -143,6 +161,7 @@
 (setq                        auto-save-file-name-transforms       `((".*" ,temporary-file-directory t)))
 (setq                        backup-directory-alist               `((".*" . ,temporary-file-directory)))
 (setq                        desktop-save-mode                        t)
+(setq                        auth-sources                          '("~/.emacs.d/.authinfo.gpg"))
 
 (setq                        native-comp-async-report-warnings-errors nil)
 (setq                        initial-scratch-message                  nil)
@@ -160,12 +179,17 @@
 (add-to-list                 'auto-mode-alist                    '("\\.guile\\'" . scheme-mode))
 (add-to-list                 'default-frame-alist                   '(fullscreen . fullboth))
 (add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
+(add-to-list                 'load-path                              "~/.emacs.d/spot4e")
 
-(when (fboundp 'next-buffer)
-  (global-set-key            (kbd "C-c ,")                           'previous-buffer)
-  (global-set-key            (kbd "C-c .")                           'next-buffer))
+(load                        "spot4e")
+(setq                        spot4e-refresh-token                    "AQAWR6aMpP1LVcBVsT-tXQet0g343qaw2Kgk2mxeRUo25XAWZYVGRmnjSBCL5nFuZMVHndPLFlDhyyzdkoAex8xyHswvSJ88tdF5MQHs62DC8i9HqJIR_FwIyq2ZINBEfqw")
+(run-with-timer 0 (* 60 59) 'spot4e-refresh)
+
+(global-set-key            (kbd "C-c ,")                             'previous-buffer)
+(global-set-key            (kbd "C-c .")                             'next-buffer)
 
 (global-prettify-symbols-mode)
+(delete-selection-mode)
 
 (add-hook                    'emacs-lisp-mode-hook                   'all-lisp-hooks)
 (add-hook                    'eval-expression-minibuffer-setup-hook  'all-lisp-hooks)
