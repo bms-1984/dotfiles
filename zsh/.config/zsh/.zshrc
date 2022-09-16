@@ -1,4 +1,4 @@
-###.zshrc was last modified on September 14, 2022 at 10:57 PM EDT by bms###
+###.zshrc was last modified on September 15, 2022 at 10:08 PM EDT by bms###
 # p10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -68,6 +68,8 @@ setopt \
     hist_ignore_space \
     no_equals
 
+source /usr/share/doc/find-the-command/ftc.zsh
+source <(cod init $$ zsh)
 # gpg agent is annoying
 eval $(gpg-connect-agent --quiet /bye)
 # p10k
