@@ -1,6 +1,6 @@
 ;;;; personal init file
 ;;; Commentary:
-;;;; ###init.el was last modified on September 16, 2022 at 07:49 PM EDT by bms###
+;;;; ###init.el was last modified on September 18, 2022 at 05:46 PM EDT by bms###
 ;;; Code:
 (setenv "TZ" "EST+5EDT,M3.2.0/2,M11.1.0/2")
 
@@ -136,7 +136,7 @@
 (use-package                 rainbow-delimiters
   :hook                    ((emacs-lisp-mode eval-expression-minibuffer-setup ielm-mode
 					     lisp-mode lisp-interaction-mode
-					     scheme-mode  sly-mode)
+					     scheme-mode sly-mode)
 			    . rainbow-delimiters-mode))
 (use-package                 sly)
 (use-package                 sly-macrostep
