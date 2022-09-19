@@ -1,4 +1,4 @@
-###.gitmodules was last modified on September 14, 2022 at 10:30 PM EDT by bms###
+#.gitmodules was last modified on September 19, 2022 at 05:22 PM EDT by bms#
 [submodule "zsh-custom/plugins/send"]
 	path = zsh-custom/plugins/send
 	url = https://github.com/robertzk/send.zsh.git
@@ -8,21 +8,13 @@
 [submodule "zsh-custom/plugins/autoupdate"]
 	path = zsh-custom/plugins/autoupdate
 	url = https://github.com/tamcore/autoupdate-oh-my-zsh-plugins.git
-[submodule "zsh-custom/plugins/copyzshell"]
-	path = zsh-custom/plugins/copyzshell
-	url = https://github.com/rutchkiwi/copyzshell.git
 [submodule "zsh-custom/plugins/solarized-man"]
 	path = zsh-custom/plugins/solarized-man
 	url = https://github.com/zlsun/solarized-man.git
-[submodule "zsh-custom/plugins/zsh-aliases-lsd"]
-	path = zsh-custom/plugins/zsh-aliases-lsd
-	url = https://github.com/yuhonas/zsh-aliases-lsd.git
 [submodule "zsh-custom/plugins/zsh-autosuggestions"]
 	path = zsh-custom/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
 [submodule "zsh-custom/themes/powerlevel10k"]
 	path = zsh-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "zhistory"]
-	path = zhistory
-	url = git@github.com:bms-1984/zsh-history.git
+#end

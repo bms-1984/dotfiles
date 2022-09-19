@@ -1,4 +1,4 @@
-###.gitconfig was last modified on September 14, 2022 at 10:29 PM EDT by bms###
+#config was last modified on September 19, 2022 at 05:23 PM EDT by bms#
 [user]
         name = Ben Sutter
         email = 14796185+bms-1984@users.noreply.github.com
@@ -32,3 +32,4 @@
 	helper = !/usr/bin/gh auth git-credential
 [github]
 	user = bms-1984
+#end

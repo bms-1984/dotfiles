@@ -1,10 +1,7 @@
-###.zshrc was last modified on September 18, 2022 at 11:54 PM EDT by bms###
-# p10k instant prompt
+#.zshrc was last modified on September 19, 2022 at 05:35 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# ohmyzsh setup
 LISTMAX=0
 LOGCHECK=60
 HISTSIZE=20000
@@ -17,20 +14,7 @@ watch=(all)
 WATCHFMT='%n %a %l from %m at %t.'
 WORDCHARS="${WORDCHARS:s#/#}"
 DIRSTACKSIZE=60
-
-# ohmyzsh
-export ZSH="$ZDOTDIR/oh-my-zsh"
-export ZSH_CUSTOM="$HOME/.dotfiles/zsh-custom"
-ZSH_CUSTOM_AUTOUPDATE_QUIET=true
-ZSH_THEME="powerlevel10k/powerlevel10k"
-zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-zstyle ':omz:update' frequency 1
-plugins=(command-not-found colorize cp gpg-agent \
-			   history  autoupdate send solarized-man \
-			   zsh-autosuggestions fast-syntax-highlighting)
-source $ZSH/oh-my-zsh.sh
-
-# options
+[[ -f $ZDOTDIR/omz.zsh ]] && source $ZDOTDIR/omz.zsh
 setopt \
     auto_cd \
     cdable_vars \
@@ -63,33 +47,10 @@ setopt \
     transient_rprompt \
     hist_ignore_space \
     no_equals
-
 autoload -Uz start ustart stop ustop restart urestart status ustatus
-
-source /usr/share/doc/find-the-command/ftc.zsh
-source <(cod init $$ zsh)
-# gpg agent is annoying
 eval $(gpg-connect-agent --quiet /bye)
-# p10k
-[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
-
-# nice aliases
-alias sbcl="rlwrap sbcl"
-alias src="exec zsh"
-alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
-alias zenv="$EDITOR $ZDOTDIR/.zshenv"
-alias zenv_="$EDITOR $HOME/.zshenv"
-alias zlog="$EDITOR $ZDOTDIR/.zlogin"
-alias make="remake"
-alias pacman="pacman --color=always"
-alias ssh="ssh -F $CONFIG/ssh/config"
-alias icat="kitty +kitten icat"
-alias emacs="$SCRIPTS/emacscheck.sh"
-alias e="emacs"
-alias neofetch="neofetch --kitty --source $DOTFILES/arch.png"
-alias mkdir="mkdir -p"
-alias guile="guile -q -l $CONFIG/guile/init"
-alias ls="lsd"
-alias la="lsd -a"
-alias ll="lsd -l"
+source <(cod init $$ zsh)
+[[ -f /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh
+[[ -f $ZDOTDIR/.p10k.zsh ]] && source $ZDOTDIR/.p10k.zsh
+[[ -f $ZDOTDIR/aliases.zsh ]] && source $ZDOTDIR/aliases.zsh
 # end

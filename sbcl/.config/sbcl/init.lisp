@@ -1,5 +1,4 @@
-;;; ###init was last modified on September 14, 2022 at 10:25 PM EDT by bms###
-
+;;;; #init.lisp was last modified on September 19, 2022 at 05:25 PM EDT by bms#
 ;;; Always use quicklisp
 #-quicklisp
 (let ((quicklisp-init (merge-pathnames ".config/ql/setup.lisp"
@@ -9,3 +8,4 @@
 
 ;;; Use UTF-8
 (setf sb-impl::*default-external-format* :utf-8)
+;;;; #end

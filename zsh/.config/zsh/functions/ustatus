@@ -1,1 +1,3 @@
+#ustatus was last modified on September 19, 2022 at 05:28 PM EDT by bms#
 systemctl status --user $1
+#end

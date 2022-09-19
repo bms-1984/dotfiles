@@ -1,3 +1,2 @@
-
 * BENJI'S DOTFILES
 These are my Arch Linux dotfiles.

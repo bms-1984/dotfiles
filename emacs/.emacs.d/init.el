@@ -1,6 +1,6 @@
-;;;; personal init file
+;;;; init.el -- personal init file
 ;;; Commentary:
-;;;; ###init.el was last modified on September 18, 2022 at 05:46 PM EDT by bms###
+;;;#init.el was last modified on September 19, 2022 at 04:55 PM EDT by bms#
 ;;; Code:
 (setenv "TZ" "EST+5EDT,M3.2.0/2,M11.1.0/2")
 
@@ -106,7 +106,7 @@
   :init                     (progn
 			      (setq
 			       org-agenda-files '("~/.dotfiles/README.ORG"))
-			      (setq 
+			      (setq
 			       org-log-done t)
 			      (setq
 			       org-startup-indented t)
@@ -115,7 +115,7 @@
   :config                   (progn
 			      (global-set-key
 			       (kbd "C-c l") 'org-store-link)
-			      (global-set-key 
+			      (global-set-key
 			       (kbd "C-c a") 'org-agenda)))
 (use-package                 org-bullets
   :after                     org
@@ -156,7 +156,7 @@
 (defalias                    'exit                                   'kill-emacs)
 
 (setq                        time-stamp-pattern
-			    "8/###%f was last modified on %:B %02d, %Y at %02I:%02M %P %Z by %l###")
+			    "8/#%f was last modified on %:B %02d, %Y at %02I:%02M %P %Z by %l#")
 (setq                        time-stamp-time-zone                    "EST+5EDT,M3.2.0/2,M11.1.0/2")
 (setq                        auto-save-file-name-transforms       `((".*" ,temporary-file-directory t)))
 (setq                        backup-directory-alist               `((".*" . ,temporary-file-directory)))

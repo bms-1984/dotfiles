@@ -1,3 +1,4 @@
-###.gitignore_global was last modified on September 14, 2022 at 10:30 PM EDT by bms###
+#gitignore was last modified on September 19, 2022 at 05:23 PM EDT by bms#
 *.o
 *~
+#end

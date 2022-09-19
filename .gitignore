@@ -1,3 +1,2 @@
-###.gitignore was last modified on September 14, 2022 at 10:30 PM EDT by bms###
-emacs/.emacs.d/*
-!emacs/.emacs.d/init.el
+#.gitignore was last modified on September 19, 2022 at 05:22 PM EDT by bms#
+#end

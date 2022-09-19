@@ -1,9 +1,10 @@
-;;;; ###.guile was last modified on September 14, 2022 at 10:31 PM EDT by bms###
+;;;; #init.scm was last modified on September 19, 2022 at 05:24 PM EDT by bms#
 (use-modules (ice-9 colorized))
 (activate-colorized)
 (use-modules (ice-9 readline))
 (activate-readline)
 (use-modules (srfi srfi-1))
+
 (define (prime? num)
   (cond
    ((or (= num 0) (= num 1)) #f)
@@ -15,3 +16,4 @@
   (if (< first last)
     (append (list first) (range (+ first 1) last))
     (list last)))
+;;;; #end

@@ -1,6 +1,6 @@
-###config was last modified on September 14, 2022 at 10:21 PM EDT by bms###
+#config was last modified on September 19, 2022 at 05:23 PM EDT by bms#
 [build]
 rustc-wrapper = "sccache"
-
 [target.aarch64-unknown-linux-gnu]
 rustflags = ["-C", "target-cpu=native"]
+#end
