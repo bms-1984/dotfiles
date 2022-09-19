@@ -1,4 +1,4 @@
-###.zshrc was last modified on September 15, 2022 at 10:08 PM EDT by bms###
+###.zshrc was last modified on September 18, 2022 at 10:07 PM EDT by bms###
 # p10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -8,7 +8,6 @@ fi
 LISTMAX=0
 LOGCHECK=60
 HISTSIZE=20000
-HISTFILE=$ZDOTDIR/.history
 MAILCHECK=1
 READNULLCMD=less
 REPORTTIME=15
@@ -17,12 +16,10 @@ TIMEFMT='%J  %*U user %*S system %P cpu (%*E wasted time).'
 watch=(all)
 WATCHFMT='%n %a %l from %m at %t.'
 WORDCHARS="${WORDCHARS:s#/#}"
-skip_global_compinit=1
-COMPLETION_WAITING_DOTS="true"
 DIRSTACKSIZE=60
 
 # ohmyzsh
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$ZDOTDIR/oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh-custom"
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -73,24 +70,22 @@ source <(cod init $$ zsh)
 # gpg agent is annoying
 eval $(gpg-connect-agent --quiet /bye)
 # p10k
-[[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
+[[ ! -f $ZDOTDIR/.p10k.zsh ]] || source $ZDOTDIR/.p10k.zsh
 
 # nice aliases
 alias sbcl="rlwrap sbcl"
 alias src="exec zsh"
-alias zshrc="$EDITOR $ZDOTDIR/.zshrc &"
-alias zenv="$EDITOR $ZDOTDIR/.zshenv &"
-alias zlog="$EDITOR $ZDOTDIR/.zlogin &"
+alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
+alias zenv="$EDITOR $ZDOTDIR/.zshenv"
+alias zenv_="$EDITOR $HOME/.zshenv"
+alias zlog="$EDITOR $ZDOTDIR/.zlogin"
 alias make="remake"
 alias pacman="pacman --color=always"
-alias ssh="kitty +kitten ssh"
+alias ssh="ssh -F $CONFIG/ssh/config"
 alias icat="kitty +kitten icat"
+alias emacs="$SCRIPTS/emacscheck.sh"
 alias e="emacs"
-alias neofetch="neofetch --kitty --source $HOME/.arch.png"
+alias neofetch="neofetch --kitty --source $DOTFILES/arch.png"
 alias mkdir="mkdir -p"
-
-# extra functions
-emacs () {
-    emacscheck.sh $@ &
-}
+alias guile="guile -q -l $CONFIG/guile/init"
 # end
