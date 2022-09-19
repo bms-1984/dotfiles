@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 19, 2022 at 05:21 PM EDT by bms#
+#aliases.zsh was last modified on September 19, 2022 at 05:43 PM EDT by bms#
 alias sbcl="rlwrap sbcl --userinit $CONFIG/sbcl/init.lisp"
 alias src="exec zsh"
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
@@ -17,6 +17,7 @@ alias neofetch="neofetch --kitty --source $DOTFILES/arch.png"
 alias mkdir="mkdir -p"
 alias guile="guile -q -l $CONFIG/guile/init.scm"
 alias ls="lsd"
-alias la="lsd -a"
-alias ll="lsd -l"
+alias la="ls -a"
+alias ll="ls -l"
+alias lla="la -l"
 #end

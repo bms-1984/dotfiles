@@ -1,4 +1,4 @@
-#.zshenv was last modified on September 19, 2022 at 05:39 PM EDT by bms#
+#.zshenv was last modified on September 19, 2022 at 05:57 PM EDT by bms#
 export GPG_TTY=${TTY:-$(tty)}
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GREP_OPTIONS=-color=auto
@@ -31,6 +31,9 @@ export NPM_CONFIG_USERCONFIG=$CONFIG/npm/npmrc
 export CARGO_HOME=$CONFIG/cargo
 export GNUPGHOME=$CONFIG/gnupg
 export XINITRC=$CONFIG/x/initrc
+export MAKEFLAGS="-j$(nproc) $MAKEFLAGS"
+export CFLAGS="-fanalyzer -fstack-check -fstack-protector-strong -fverbose-asm -Wall -Wextra -march=native -std=c11 $CFLAGS"
+export LDFLAGS="--fatal-warnings --gc-sections"
 typeset -TUx PATH path
 typeset -TUx INFOPATH infopath
 typeset -TUx MANPATH manpath

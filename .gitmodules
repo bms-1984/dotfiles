@@ -17,4 +17,10 @@
 [submodule "zsh-custom/themes/powerlevel10k"]
 	path = zsh-custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "zsh-custom/plugins/zsh-kitty"]
+	path = zsh-custom/plugins/zsh-kitty
+	url = https://github.com/redxtech/zsh-kitty.git
+[submodule "zsh-custom/plugins/zsh-256color"]
+	path = zsh-custom/plugins/zsh-256color
+	url = https://github.com/chrissicool/zsh-256color.git
 #end

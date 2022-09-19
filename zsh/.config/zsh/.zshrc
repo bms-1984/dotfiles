@@ -1,4 +1,4 @@
-#.zshrc was last modified on September 19, 2022 at 05:35 PM EDT by bms#
+#.zshrc was last modified on September 19, 2022 at 07:09 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -48,6 +48,7 @@ setopt \
     hist_ignore_space \
     no_equals
 autoload -Uz start ustart stop ustop restart urestart status ustatus
+__kitty_complete
 eval $(gpg-connect-agent --quiet /bye)
 source <(cod init $$ zsh)
 [[ -f /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh
