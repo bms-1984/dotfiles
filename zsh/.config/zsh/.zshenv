@@ -1,4 +1,4 @@
-###.zshenv was last modified on September 18, 2022 at 09:57 PM EDT by bms###
+###.zshenv was last modified on September 18, 2022 at 11:59 PM EDT by bms###
 # environment variables
 export GPG_TTY=${TTY:-$(tty)}
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

@@ -1,4 +1,4 @@
-###.zshrc was last modified on September 18, 2022 at 10:07 PM EDT by bms###
+###.zshrc was last modified on September 18, 2022 at 11:54 PM EDT by bms###
 # p10k instant prompt
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -25,10 +25,9 @@ ZSH_CUSTOM_AUTOUPDATE_QUIET=true
 ZSH_THEME="powerlevel10k/powerlevel10k"
 zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 zstyle ':omz:update' frequency 1
-plugins=(git github command-not-found colorize cp gpg-agent \
-	     history archlinux systemd autoupdate \
-	     send solarized-man zsh-autosuggestions zsh-aliases-lsd \
-	     fast-syntax-highlighting)
+plugins=(command-not-found colorize cp gpg-agent \
+			   history  autoupdate send solarized-man \
+			   zsh-autosuggestions fast-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # options
@@ -65,6 +64,8 @@ setopt \
     hist_ignore_space \
     no_equals
 
+autoload -Uz start ustart stop ustop restart urestart status ustatus
+
 source /usr/share/doc/find-the-command/ftc.zsh
 source <(cod init $$ zsh)
 # gpg agent is annoying
@@ -88,4 +89,7 @@ alias e="emacs"
 alias neofetch="neofetch --kitty --source $DOTFILES/arch.png"
 alias mkdir="mkdir -p"
 alias guile="guile -q -l $CONFIG/guile/init"
+alias ls="lsd"
+alias la="lsd -a"
+alias ll="lsd -l"
 # end
