@@ -5,3 +5,6 @@ Host *
 Host aur.archlinux.org
   IdentityFile ~/.ssh/aur
   User aur
+Host github.com
+ HostName github.com
+ IdentityFile ~/.config/ssh/id_ed25519

@@ -24,6 +24,7 @@ export XDG_CACHE_HOME=$CACHE
 export XDG_DATA_HOME=$DATA
 export XDG_RUNTIME_DIR=$XDG
 
+export GIT_SSH_COMMAND="ssh -F $CONFIG/ssh/config"
 export WGETRC=$CONFIG/wget/rc
 export GUILE_HISTORY=$HISTORY/guile
 export HISTFILE=$HISTORY/zsh
