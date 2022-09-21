@@ -3,6 +3,7 @@
 ;;;#init.el was last modified on September 19, 2022 at 04:55 PM EDT by bms#
 ;;; Code:
 (setenv "TZ" "EST+5EDT,M3.2.0/2,M11.1.0/2")
+(setenv "HISTFILE" "/home/bms/.history/zsh")
 
 (defvar                      electrify-return-match
   "[\]}\)\"]"

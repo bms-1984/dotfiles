@@ -1,4 +1,4 @@
-#.zshrc was last modified on September 19, 2022 at 07:09 PM EDT by bms#
+#.zshrc was last modified on September 20, 2022 at 06:32 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -47,7 +47,7 @@ setopt \
     transient_rprompt \
     hist_ignore_space \
     no_equals
-autoload -Uz start ustart stop ustop restart urestart status ustatus
+autoload -Uz start ustart stop ustop restart urestart status ustatus enable uenable
 __kitty_complete
 eval $(gpg-connect-agent --quiet /bye)
 source <(cod init $$ zsh)

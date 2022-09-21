@@ -1,4 +1,4 @@
-#omz.zsh was last modified on September 19, 2022 at 07:09 PM EDT by bms#
+#omz.zsh was last modified on September 20, 2022 at 07:16 PM EDT by bms#
 export ZSH="$ZDOTDIR/oh-my-zsh"
 export ZSH_CUSTOM="$HOME/.dotfiles/zsh-custom"
 ZSH_CUSTOM_AUTOUPDATE_QUIET=true

@@ -1,0 +1,3 @@
+#uenable was last modified on September 20, 2022 at 06:33 PM EDT by bms#
+systemctl enable --user $1
+#end
