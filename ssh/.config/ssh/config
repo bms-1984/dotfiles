@@ -2,7 +2,7 @@
 Host *
   AddKeysToAgent yes
 Host aur.archlinux.org
-  IdentityFile ~/.ssh/aur
+  IdentityFile ~/.config/ssh/aur
   User aur
 Host github.com
  HostName github.com
