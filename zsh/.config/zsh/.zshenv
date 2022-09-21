@@ -1,4 +1,4 @@
-#.zshenv was last modified on September 20, 2022 at 07:16 PM EDT by bms#
+#.zshenv was last modified on September 20, 2022 at 08:29 PM EDT by bms#
 export GPG_TTY=${TTY:-$(tty)}
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GREP_OPTIONS="--color=auto -n"
@@ -9,8 +9,9 @@ export HISTORY=$HOME/.history
 export DOTFILES=$HOME/.dotfiles
 export SCRIPTS=$HOME/.scripts
 export SRC=$HOME/.sources
-export BUILD=$SOURCES/build
+export BUILD=$SRC/build
 export AUR=$BUILD/aur
+export REPO=$SRC/packages
 export ORG=$HOME/.organization
 export LOCAL=$HOME/.local
 export CONFIG=$HOME/.config
