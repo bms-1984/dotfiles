@@ -1,10 +1,7 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 19, 2022 at 04:55 PM EDT by bms#
+;;;#init.el was last modified on September 21, 2022 at 02:59 PM EDT by bms#
 ;;; Code:
-(setenv "TZ" "EST+5EDT,M3.2.0/2,M11.1.0/2")
-(setenv "HISTFILE" "/home/bms/.history/zsh")
-
 (defvar                      electrify-return-match
   "[\]}\)\"]"
   "If this regexp matches the text after the cursor, do an \"electric\" return.")
@@ -49,9 +46,44 @@
 					     scheme-mode sly-mode)
 			    . eldoc-mode))
 (use-package                 exec-path-from-shell
-  :config                   (when
-				(memq window-system '(mac ns x))
-			      (exec-path-from-shell-initialize)))
+  :config                   (progn
+			      (setq exec-path-from-shell-arguments nil)
+			      (dolist (var '("TZ" "HISTORY"
+					     "DOTFILES" "SCRIPTS"
+					     "SRC" "BUILD"
+					     "AUR" "REPO"
+					     "ORG" "LOCAL"
+					     "CONFIG" "CACHE"
+					     "DATA" "XDG"
+					     "XDG_CONFIG_HOME"
+					     "XDG_CACHE_HOME"
+					     "XDG_DATA_HOME"
+					     "XDG_RUNTIME_DIR"
+					     "GIT_SSH_COMMAND"
+					     "WGETRC"
+					     "GUILE_HISTORY"
+					     "HISTFILE"
+					     "LESSHISTFILE"
+					     "LESS" "RUSTUP_HOME"
+					     "NPM_CONFIG_USER_CONFIG"
+					     "CARGO_HOME" "GNUPGHOME"
+					     "XINITRC" "MAKEFLAGS"
+					     "CFLAGS" "LDFLAGS"
+					     "DIFFPROG" "PASSWORD_STORE_DIR"
+					     "NOTMUCH_CONFIG"
+					     "PKG_CONFIG_PATH"
+					     "SSH_AUTH_SOCK"
+       					     "SSH_AGENT_PID"
+					     "GPG_AGENT_INFO"
+					     "LANG"
+					     "LC_CTYPE"
+					     "INFOPATH"
+					     "GUILE_LOAD_PATH"
+					     "GUILE_LOAD_COMPILED_PATH"
+					     "FPATH")
+					   (add-to-list 'exec-path-from-shell-variables var))
+				(when (daemonp)
+				  (exec-path-from-shell-initialize)))))
 (use-package                 fancy-compilation
   :config                   (fancy-compilation-mode))
 (use-package                 flycheck
@@ -103,6 +135,8 @@
   :config                   (magit-todos-mode))
 (use-package                 nasm-mode
   :mode                   "\\.asm\\'")
+(use-package                 notmuch
+  :straight                  nil)
 (use-package                 org
   :init                     (progn
 			      (setq

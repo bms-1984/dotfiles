@@ -1,4 +1,5 @@
-#.zshenv was last modified on September 20, 2022 at 08:29 PM EDT by bms#
+#.zshenv was last modified on September 21, 2022 at 09:01 PM EDT by bms#
+export MAIL=$HOME/.mail
 export GPG_TTY=${TTY:-$(tty)}
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
 export GREP_OPTIONS="--color=auto -n"
@@ -27,8 +28,7 @@ export WGETRC=$CONFIG/wget/rc
 export GUILE_HISTORY=$HISTORY/guile
 export HISTFILE=$HISTORY/zsh
 export LESSHISTFILE="-"
-export LESS="-R --use-color -Dd+r$Du+b"
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export LESS="-R --use-color"
 export RUSTUP_HOME=$DATA/rustup
 export NPM_CONFIG_USERCONFIG=$CONFIG/npm/npmrc
 export CARGO_HOME=$CONFIG/cargo
@@ -38,6 +38,8 @@ export MAKEFLAGS="-j$(nproc) $MAKEFLAGS"
 export CFLAGS="-fanalyzer -fstack-check -fstack-protector-strong -fverbose-asm -Wall -Wextra -march=native -std=c11 $CFLAGS"
 export LDFLAGS="--fatal-warnings --gc-sections"
 export DIFFPROG="delta"
+export PASSWORD_STORE_DIR=$CONFIG/pass/store
+export NOTMUCH_CONFIG=$CONFIG/notmuch/config
 typeset -TUx PATH path
 typeset -TUx INFOPATH infopath
 typeset -TUx MANPATH manpath

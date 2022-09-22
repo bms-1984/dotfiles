@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 20, 2022 at 08:24 PM EDT by bms#
+#aliases.zsh was last modified on September 20, 2022 at 11:09 PM EDT by bms#
 alias sbcl="rlwrap sbcl --userinit $CONFIG/sbcl/init.lisp"
 alias src="exec zsh"
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
@@ -21,5 +21,5 @@ alias la="ls -a"
 alias ll="ls -l"
 alias lla="la -l"
 alias ip="ip -color=auto"
-
+alias fdm="fdm -f $CONFIG/fdm/fdm.conf"
 #end
