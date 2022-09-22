@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 21, 2022 at 02:59 PM EDT by bms#
+;;;#init.el was last modified on September 21, 2022 at 10:32 PM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -48,7 +48,7 @@
 (use-package                 exec-path-from-shell
   :config                   (progn
 			      (setq exec-path-from-shell-arguments nil)
-			      (dolist (var '("TZ" "HISTORY"
+			      (dolist (var '("TZ" "HISTORY" "MAIL" "MAILCHECK"
 					     "DOTFILES" "SCRIPTS"
 					     "SRC" "BUILD"
 					     "AUR" "REPO"

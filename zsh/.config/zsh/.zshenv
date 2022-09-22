@@ -1,4 +1,5 @@
-#.zshenv was last modified on September 21, 2022 at 09:01 PM EDT by bms#
+#.zshenv was last modified on September 21, 2022 at 10:31 PM EDT by bms#
+export MAILCHECK=-1
 export MAIL=$HOME/.mail
 export GPG_TTY=${TTY:-$(tty)}
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)

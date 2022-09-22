@@ -1,0 +1,30 @@
+set real_name = "Ben Sutter"
+set from = "benjaminsutter@outlook.com"
+alternates "benjaminsutter@icloud.com"
+set sort = reverse-date-received
+set folder = ~/.mail
+set spool_file = "+INBOX"
+set record = "+sent"
+set trash = "+trash"
+set postponed = "+drafts"
+ignore *
+unignore From Message-ID Date To Cc Bcc Subject
+set pager_stop
+unset markers
+alternative_order multipart/mixed multipart/related text/plain
+mime_lookup application/octet-stream
+auto_view text/html
+set quit = ask-yes
+set header_cache= "~/.cache/neomutt/hcache"
+set edit_headers
+set editor = "emacscheck.sh"
+set mime_type_query_command = "xdg-mime query filetype"
+set sendmail = "/usr/bin/msmtp"
+unset crypt_use_gpgme
+source /usr/share/doc/neomutt/samples/gpg.rc
+set pgp_default_key = "63A85E19824320F45B09CCC9576AB3A75195A3FD"
+set crypt_opportunistic_encrypt
+set postpone_encrypt
+macro index A \
+    "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
+    "mark all new as read"

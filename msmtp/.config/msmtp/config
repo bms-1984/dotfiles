@@ -1,0 +1,27 @@
+##
+defaults
+auth           on
+tls            on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile        /home/bms/.cache/msmtp/log
+
+# outlook
+account        outlook
+host           smtp.office365.com
+port           587
+tls_starttls   on
+from           benjaminsutter@outlook.com
+user           benjaminsutter@outlook.com
+passwordeval   pass outlook.com/benjaminsutter | head -n1
+
+# icloud
+account        icloud
+host           smtp.mail.me.com
+port           587
+tls_starttls   on
+from           benjaminsutter@icloud.com
+user           benjaminsutter@icloud.com
+passwordeval   pass icloud.com/benjaminsutter | head -n1
+
+account default : outlook
+#end
