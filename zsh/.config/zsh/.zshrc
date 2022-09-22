@@ -1,11 +1,10 @@
-#.zshrc was last modified on September 20, 2022 at 06:32 PM EDT by bms#
+#.zshrc was last modified on September 22, 2022 at 02:06 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 LISTMAX=0
 LOGCHECK=60
 HISTSIZE=20000
-MAILCHECK=1
 READNULLCMD=less
 REPORTTIME=15
 SAVEHIST=30000000

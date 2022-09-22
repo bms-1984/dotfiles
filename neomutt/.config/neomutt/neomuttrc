@@ -1,3 +1,4 @@
+#neomuttrc was last modified on September 22, 2022 at 02:10 PM EDT by bms#
 set real_name = "Ben Sutter"
 set from = "benjaminsutter@outlook.com"
 alternates "benjaminsutter@icloud.com"
@@ -28,3 +29,4 @@ set postpone_encrypt
 macro index A \
     "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" \
     "mark all new as read"
+#end

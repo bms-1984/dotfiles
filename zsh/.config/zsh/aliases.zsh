@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 20, 2022 at 11:09 PM EDT by bms#
+#aliases.zsh was last modified on September 22, 2022 at 02:08 PM EDT by bms#
 alias sbcl="rlwrap sbcl --userinit $CONFIG/sbcl/init.lisp"
 alias src="exec zsh"
 alias zshrc="$EDITOR $ZDOTDIR/.zshrc"
@@ -8,7 +8,6 @@ alias zlog="$EDITOR $ZDOTDIR/.zlogin"
 alias zali="$EDITOR $ZDOTDIR/aliases.zsh"
 alias zplug="$EDITOR $ZDOTDIR/omz.zsh"
 alias make="remake"
-alias pacman="pacman --color=always"
 alias ssh="ssh -F $CONFIG/ssh/config"
 alias icat="kitty +kitten icat"
 alias emacs="$SCRIPTS/emacscheck.sh"

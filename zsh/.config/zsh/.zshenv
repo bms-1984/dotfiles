@@ -1,4 +1,4 @@
-#.zshenv was last modified on September 21, 2022 at 10:41 PM EDT by bms#
+#.zshenv was last modified on September 22, 2022 at 02:05 PM EDT by bms#
 export MAILCHECK=0
 export MAIL=$HOME/.mail
 export GPG_TTY=${TTY:-$(tty)}
@@ -37,7 +37,7 @@ export GNUPGHOME=$CONFIG/gnupg
 export XINITRC=$CONFIG/x/initrc
 export MAKEFLAGS="-j$(nproc) $MAKEFLAGS"
 export CFLAGS="-fanalyzer -fstack-check -fstack-protector-strong -fverbose-asm -Wall -Wextra -march=native -std=c11 $CFLAGS"
-export LDFLAGS="--fatal-warnings --gc-sections"
+export LDFLAGS="--fatal-warnings --gc-sections $LDFLAGS"
 export DIFFPROG="delta"
 export PASSWORD_STORE_DIR=$CONFIG/pass/store
 export NOTMUCH_CONFIG=$CONFIG/notmuch/config

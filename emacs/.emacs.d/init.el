@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 21, 2022 at 10:32 PM EDT by bms#
+;;;#init.el was last modified on September 22, 2022 at 02:03 PM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -146,7 +146,9 @@
 			      (setq
 			       org-startup-indented t)
 			      (setq
-			       org-startup-numerated t))
+			       org-startup-numerated t)
+			      (setq
+			       org-directory "~/.organization/"))
   :config                   (progn
 			      (global-set-key
 			       (kbd "C-c l") 'org-store-link)
@@ -205,9 +207,10 @@
 
 (setq                        vc-follow-symlinks                       nil)
 
-(setq                        Info-directory-list                     (cons "~/.local/share/info" Info-directory-list))
-(setq                        inferior-lisp-program                   "~/.local/bin/sbcl")
+(setq                        inferior-lisp-program                   "sbcl")
 (setq                        scheme-program-name                     "guile")
+
+(setq                        spot4e-refresh-token                    "AQAWR6aMpP1LVcBVsT-tXQet0g343qaw2Kgk2mxeRUo25XAWZYVGRmnjSBCL5nFuZMVHndPLFlDhyyzdkoAex8xyHswvSJ88tdF5MQHs62DC8i9HqJIR_FwIyq2ZINBEfqw")
 
 (fset                        'yes-or-no-p                            'y-or-n-p)
 
@@ -215,13 +218,9 @@
 (add-to-list                 'default-frame-alist                   '(fullscreen . fullboth))
 (add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
 (add-to-list                 'load-path                              "~/.emacs.d/spot4e")
-
 (load                        "spot4e")
-(setq                        spot4e-refresh-token                    "AQAWR6aMpP1LVcBVsT-tXQet0g343qaw2Kgk2mxeRUo25XAWZYVGRmnjSBCL5nFuZMVHndPLFlDhyyzdkoAex8xyHswvSJ88tdF5MQHs62DC8i9HqJIR_FwIyq2ZINBEfqw")
-(run-with-timer 0 (* 60 59) 'spot4e-refresh)
 
-(global-set-key            (kbd "C-c ,")                             'previous-buffer)
-(global-set-key            (kbd "C-c .")                             'next-buffer)
+(run-with-timer 0 (* 60 59) 'spot4e-refresh)
 
 (global-prettify-symbols-mode)
 (delete-selection-mode)
@@ -249,7 +248,7 @@
 									      (kill-buffer buffer)))))
 (add-hook                    'before-save-hook                       (lambda ()
 								       (time-stamp)
-								       (when (string= 
+								       (when (string=
 									      (file-name-nondirectory (buffer-file-name))
 									      "README.ORG")
 									 (org-gfm-export-to-markdown))))
