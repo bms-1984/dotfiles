@@ -1,4 +1,4 @@
-#.zshrc was last modified on September 24, 2022 at 04:23 PM EDT by bms#
+#.zshrc was last modified on September 24, 2022 at 05:18 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi

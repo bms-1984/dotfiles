@@ -1,4 +1,4 @@
-#.zshenv was last modified on September 24, 2022 at 04:58 PM EDT by bms#
+#.zshenv was last modified on September 24, 2022 at 05:17 PM EDT by bms#
 export MAILCHECK=0
 export MAIL="$HOME/.mail"
 export GPG_TTY="${TTY:-$(tty)}"

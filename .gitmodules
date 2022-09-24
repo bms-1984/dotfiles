@@ -1,0 +1,20 @@
+#.gitmodules was last modified on September 24, 2022 at 05:17 PM EDT by bms#
+[submodule "zsh/.config/zsh/custom/plugins/fast-syntax-highlighting"]
+	path = zsh/.config/zsh/custom/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting.git
+[submodule "zsh/.config/zsh/custom/plugins/solarized-man"]
+	path = zsh/.config/zsh/custom/plugins/solarized-man
+	url = https://github.com/zlsun/solarized-man.git
+[submodule "zsh/.config/zsh/custom/plugins/zsh-256color"]
+	path = zsh/.config/zsh/custom/plugins/zsh-256color
+	url = https://github.com/chrissicool/zsh-256color.git
+[submodule "zsh/.config/zsh/custom/plugins/zsh-autosuggestions"]
+	path = zsh/.config/zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "zsh/.config/zsh/custom/plugins/zsh-kitty"]
+	path = zsh/.config/zsh/custom/plugins/zsh-kitty
+	url = https://github.com/redxtech/zsh-kitty.git
+[submodule "zsh/.config/zsh/custom/themes/powerlevel10k"]
+	path = zsh/.config/zsh/custom/themes/powerlevel10k
+	url = https://github.com/romkatv/powerlevel10k.git
+#end
