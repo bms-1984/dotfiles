@@ -1,0 +1,7 @@
+#update was last modified on September 24, 2022 at 03:35 PM EDT by bms#
+sudo pacman -Syu
+omz update
+pushd "${DOTFILES:-$HOME/.dotfiles}"
+git submodule update --remote
+popd
+#end

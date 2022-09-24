@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 22, 2022 at 02:03 PM EDT by bms#
+;;;#init.el was last modified on September 24, 2022 at 04:12 PM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -214,9 +214,17 @@
 
 (fset                        'yes-or-no-p                            'y-or-n-p)
 
-(add-to-list                 'auto-mode-alist                    '("\\.guile\\'" . scheme-mode))
-(add-to-list                 'default-frame-alist                   '(fullscreen . fullboth))
-(add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
+(add-to-list                 'auto-mode-alist                        `(,(file-name-concat
+									 (getenv "HOME")
+									 ".config/zsh/functions/[^./][^/]+\\'")
+								       . sh-mode))
+(add-to-list                 'auto-mode-alist                        `(,(file-name-concat
+									 (getenv "HOME")
+									 ".dotfiles/zsh/.config/zsh/functions/[^./][^/]+\\'")
+								       . sh-mode))
+(add-to-list                 'auto-mode-alist                        '("\\.guile\\'" . scheme-mode))
+(add-to-list                 'default-frame-alist                    '(fullscreen . fullboth))
+(add-to-list                 'default-frame-alist                    '(font . "MesloLGS NF"))
 (add-to-list                 'load-path                              "~/.emacs.d/spot4e")
 (load                        "spot4e")
 
@@ -225,6 +233,11 @@
 (global-prettify-symbols-mode)
 (delete-selection-mode)
 
+(add-hook                    'sh-mode-hook                           (lambda ()
+								       (when (string-search
+									      "functions"
+									      (file-name-directory (buffer-file-name)))
+									 (sh-set-shell "/bin/zsh"))))
 (add-hook                    'emacs-lisp-mode-hook                   'all-lisp-hooks)
 (add-hook                    'eval-expression-minibuffer-setup-hook  'all-lisp-hooks)
 (add-hook                    'ielm-mode-hook                         'all-lisp-hooks)

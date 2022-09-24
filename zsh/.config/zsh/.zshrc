@@ -1,4 +1,4 @@
-#.zshrc was last modified on September 22, 2022 at 02:06 PM EDT by bms#
+#.zshrc was last modified on September 24, 2022 at 04:23 PM EDT by bms#
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
@@ -13,7 +13,7 @@ watch=(all)
 WATCHFMT='%n %a %l from %m at %t.'
 WORDCHARS="${WORDCHARS:s#/#}"
 DIRSTACKSIZE=60
-[[ -f $ZDOTDIR/omz.zsh ]] && source $ZDOTDIR/omz.zsh
+[[ -f ${ZDOTDIR:-$HOME/.config/zsh}/omz.zsh ]] && source ${ZDOTDIR:-$HOME/.config/zsh}/omz.zsh
 setopt \
     auto_cd \
     cdable_vars \
@@ -46,11 +46,11 @@ setopt \
     transient_rprompt \
     hist_ignore_space \
     no_equals
-autoload -Uz start ustart stop ustop restart urestart status ustatus enable uenable
+autoload -Uz ${ZDOTDIR:-$HOME/.config/zsh}/functions/*
 __kitty_complete
 eval $(gpg-connect-agent --quiet /bye)
 source <(cod init $$ zsh)
 [[ -f /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh
-[[ -f $ZDOTDIR/.p10k.zsh ]] && source $ZDOTDIR/.p10k.zsh
-[[ -f $ZDOTDIR/aliases.zsh ]] && source $ZDOTDIR/aliases.zsh
+[[ -f ${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh ]] && source ${ZDOTDIR:-$HOME/.config/zsh}/.p10k.zsh
+[[ -f ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh ]] && source ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh
 # end

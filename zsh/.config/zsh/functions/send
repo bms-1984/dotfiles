@@ -1,0 +1,5 @@
+#send was last modified on September 24, 2022 at 03:33 PM EDT by bms#
+git add --all
+git commit -m "$1"
+git push
+#end
