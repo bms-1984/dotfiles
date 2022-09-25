@@ -1,6 +1,8 @@
 #config was last modified on September 19, 2022 at 05:26 PM EDT by bms#
 Host *
   AddKeysToAgent yes
+Host 173.255.226.195
+  IdentityFile ~/.config/ssh/linode
 Host aur.archlinux.org
   IdentityFile ~/.config/ssh/aur
   User aur
