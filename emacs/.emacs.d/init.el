@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 24, 2022 at 04:12 PM EDT by bms#
+;;;#init.el was last modified on September 25, 2022 at 01:33 AM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -263,7 +263,7 @@
 								       (time-stamp)
 								       (when (string=
 									      (file-name-nondirectory (buffer-file-name))
-									      "README.ORG")
+									      "README.org")
 									 (org-gfm-export-to-markdown))))
 
 (defun                       electrify-return-if-match (arg)
