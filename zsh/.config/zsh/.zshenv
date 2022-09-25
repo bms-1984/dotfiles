@@ -1,9 +1,8 @@
-#.zshenv was last modified on September 25, 2022 at 02:40 AM EDT by bms#
+#.zshenv was last modified on September 25, 2022 at 11:34 AM EDT by bms#
 export MAILCHECK=0
 export MAIL="$HOME/.mail"
 export GPG_TTY="${TTY:-$(tty)}"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-export GREP_OPTIONS="--color=auto -n"
 export EDITOR=emacs
 export VISUAL="$EDITOR"
 export TZ="EST+5EDT,M3.2.0/2,M11.1.0/2"

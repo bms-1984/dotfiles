@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 24, 2022 at 05:18 PM EDT by bms#
+#aliases.zsh was last modified on September 25, 2022 at 11:34 AM EDT by bms#
 alias emacs="${SCRIPTS:-$HOME/.scripts}/emacs.sh"
 alias e="emacs"
 alias sbcl="rlwrap sbcl --userinit ${CONFIG:-$HOME/.config}/sbcl/init.lisp"
@@ -15,10 +15,11 @@ alias icat="kitty +kitten icat"
 alias neofetch="neofetch --kitty --source ${DOTFILES:-$HOME/.dotfiles}/arch.png"
 alias mkdir="mkdir -p"
 alias guile="guile -q -l ${CONFIG:-$HOME/.config}/guile/init.scm"
-alias ls="lsd"
-alias la="ls -a"
-alias ll="ls -l"
-alias lla="la -l"
+alias ls="exa --group-directories-first --icons"
+alias la="ls --all"
+alias ll="ls --long"
+alias lla="la --long"
 alias ip="ip -color=auto"
+alias man="batman"
 alias fdm="fdm -f ${CONFIG:-$HOME/.config}/fdm/fdm.conf"
 #end
