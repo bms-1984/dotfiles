@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 25, 2022 at 08:12 AM EDT by bms#
+;;;#init.el was last modified on September 25, 2022 at 08:25 AM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -49,7 +49,7 @@
   :config                   (progn
 			      (setq exec-path-from-shell-arguments nil)
 			      (dolist (var '("TZ" "HISTORY" "MAIL" "MAILCHECK"
-					     "DOTFILES" "SCRIPTS"
+					     "DOTFILES" "SCRIPTS" "PROJECTS"
 					     "SRC" "BUILD"
 					     "AUR" "REPO"
 					     "ORG" "LOCAL"
@@ -140,7 +140,7 @@
 (use-package                 org
   :init                     (progn
 			      (setq
-			       org-agenda-files '("~/.dotfiles/README.ORG"))
+			       org-agenda-files `(,(file-name-concat (getenv "DOTFILES") "README.org")))
 			      (setq
 			       org-log-done t)
 			      (setq
@@ -148,7 +148,7 @@
 			      (setq
 			       org-startup-numerated t)
 			      (setq
-			       org-directory "~/.organization/"))
+			       org-directory (getenv "ORG")))
   :config                   (progn
 			      (global-set-key
 			       (kbd "C-c l") 'org-store-link)
@@ -198,7 +198,7 @@
 (setq                        auto-save-file-name-transforms       `((".*" ,temporary-file-directory t)))
 (setq                        backup-directory-alist               `((".*" . ,temporary-file-directory)))
 (setq                        desktop-save-mode                        t)
-(setq                        auth-sources                          '("~/.emacs.d/.authinfo.gpg"))
+(setq                        auth-sources                          `(,(file-name-concat user-emacs-directory "authinfo.gpg")))
 ;;(setq                        auth-source-pass-filename               (getenv "PASSWORD_STORE_DIR"))
 
 (setq                        native-comp-async-report-warnings-errors nil)
@@ -216,17 +216,17 @@
 (fset                        'yes-or-no-p                            'y-or-n-p)
 
 (add-to-list                 'auto-mode-alist                     `(,(file-name-concat
-								      (getenv "HOME")
-						       		      ".config/zsh/functions/[^./][^/]+\\'")
+								      (getenv "CONFIG")
+						       		      "zsh/functions/[^./][^/]+\\'")
 								    . sh-mode))
 (add-to-list                 'auto-mode-alist                     `(,(file-name-concat
-								      (getenv "HOME")
-							              ".dotfiles/zsh/.config/zsh/functions/[^./][^/]+\\'")
+								      (getenv "DOTFILES")
+							              "zsh/.config/zsh/functions/[^./][^/]+\\'")
 								    . sh-mode))
 (add-to-list                 'auto-mode-alist                    '("\\.guile\\'" . scheme-mode))
 (add-to-list                 'default-frame-alist                   '(fullscreen . fullboth))
 (add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
-(add-to-list                 'load-path                              "~/.emacs.d/spot4e")
+(add-to-list                 'load-path                              (file-name-concat user-emacs-directory "spot4e"))
 (load                        "spot4e")
 
 (run-with-timer 0 (* 60 59) 'spot4e-refresh)
@@ -287,6 +287,11 @@
   (interactive)
   (ansi-term "/bin/zsh"))
 
+(defun                       erc ()
+  "Run \"erc-tls\"."
+  (interactive)
+  (erc-tls))
+
 (custom-set-variables
  '(erc-autoaway-idle-method 'emacs)
  '(erc-autojoin-channels-alist
@@ -294,7 +299,7 @@
  '(erc-autojoin-timing 'ident)
  '(erc-email-userid "benjaminsutter@outlook.com")
  '(erc-generate-log-file-name-function 'erc-generate-log-file-name-long)
- '(erc-log-channels-directory "~/.cache/erc/")
+ `(erc-log-channels-directory ,(file-name-concat (getenv "CACHE") "erc/"))
  '(erc-modules
    '(autoaway autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands notifications readonly ring services stamp track))
  '(erc-nick "bms_n")
