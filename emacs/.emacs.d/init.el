@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 25, 2022 at 01:33 AM EDT by bms#
+;;;#init.el was last modified on September 25, 2022 at 08:12 AM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -199,6 +199,7 @@
 (setq                        backup-directory-alist               `((".*" . ,temporary-file-directory)))
 (setq                        desktop-save-mode                        t)
 (setq                        auth-sources                          '("~/.emacs.d/.authinfo.gpg"))
+;;(setq                        auth-source-pass-filename               (getenv "PASSWORD_STORE_DIR"))
 
 (setq                        native-comp-async-report-warnings-errors nil)
 (setq                        initial-scratch-message                  nil)
@@ -214,17 +215,17 @@
 
 (fset                        'yes-or-no-p                            'y-or-n-p)
 
-(add-to-list                 'auto-mode-alist                        `(,(file-name-concat
-									 (getenv "HOME")
-									 ".config/zsh/functions/[^./][^/]+\\'")
-								       . sh-mode))
-(add-to-list                 'auto-mode-alist                        `(,(file-name-concat
-									 (getenv "HOME")
-									 ".dotfiles/zsh/.config/zsh/functions/[^./][^/]+\\'")
-								       . sh-mode))
-(add-to-list                 'auto-mode-alist                        '("\\.guile\\'" . scheme-mode))
-(add-to-list                 'default-frame-alist                    '(fullscreen . fullboth))
-(add-to-list                 'default-frame-alist                    '(font . "MesloLGS NF"))
+(add-to-list                 'auto-mode-alist                     `(,(file-name-concat
+								      (getenv "HOME")
+						       		      ".config/zsh/functions/[^./][^/]+\\'")
+								    . sh-mode))
+(add-to-list                 'auto-mode-alist                     `(,(file-name-concat
+								      (getenv "HOME")
+							              ".dotfiles/zsh/.config/zsh/functions/[^./][^/]+\\'")
+								    . sh-mode))
+(add-to-list                 'auto-mode-alist                    '("\\.guile\\'" . scheme-mode))
+(add-to-list                 'default-frame-alist                   '(fullscreen . fullboth))
+(add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
 (add-to-list                 'load-path                              "~/.emacs.d/spot4e")
 (load                        "spot4e")
 
@@ -285,6 +286,29 @@
   "Run \"ansi-term\" with zsh."
   (interactive)
   (ansi-term "/bin/zsh"))
+
+(custom-set-variables
+ '(erc-autoaway-idle-method 'emacs)
+ '(erc-autojoin-channels-alist
+   '(("libera.chat" "#archlinux" "#archlinux-aur" "#archlinux-pacman" "#archlinux-proaudio" "#archlinux-projects" "#archlinux-releng" "#archlinux-reproducible" "#archlinux-wiki" "#archlinux-offtopic")))
+ '(erc-autojoin-timing 'ident)
+ '(erc-email-userid "benjaminsutter@outlook.com")
+ '(erc-generate-log-file-name-function 'erc-generate-log-file-name-long)
+ '(erc-log-channels-directory "~/.cache/erc/")
+ '(erc-modules
+   '(autoaway autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands notifications readonly ring services stamp track))
+ '(erc-nick "bms_n")
+ '(erc-port 6697)
+ '(erc-prompt-for-nickserv-password nil)
+ '(erc-prompt-for-password nil)
+ '(erc-rename-buffers t)
+ '(erc-server "irc.us.libera.chat")
+ '(erc-server-alist
+   '(("Freenode: Random US server" freenode "chat.us.freenode.net" 6667)
+     ("Libera.Chat: Random US & Canada server" Libera\.Chat "irc.us.libera.chat" 6667)))
+ '(erc-system-name "Asahi")
+ '(erc-use-auth-source-for-nickserv-password t)
+ '(erc-user-full-name "Ben Sutter"))
 
 (provide                    'init)
 ;;; init.el ends here
