@@ -1,4 +1,4 @@
-#config was last modified on September 19, 2022 at 05:23 PM EDT by bms#
+#config was last modified on September 27, 2022 at 03:45 PM EDT by bms#
 [user]
         name = Ben Sutter
         email = 14796185+bms-1984@users.noreply.github.com
@@ -23,6 +23,8 @@
 	colorMoved = default
 [color]
         ui = true
+[init]
+	templatedir = "~/.config/git/template"
 [core]
         autocrlf = input
 	excludesFile = ~/.config/git/gitignore

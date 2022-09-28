@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 25, 2022 at 08:25 AM EDT by bms#
+;;;#init.el was last modified on September 27, 2022 at 03:48 PM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -112,9 +112,17 @@
 			      (global-set-key (kbd "C-x r b") 'helm-filtered-bookmarks)
 			      (global-set-key (kbd "C-x C-f") 'helm-find-files))
   :config                   (helm-mode))
+(use-package                 helm-company
+  :after                     helm
+  :after                     company)
 (use-package                 helm-make
   :after                     helm
   :init                     (global-set-key (kbd "C-c c c") 'helm-make))
+(use-package                 helm-sly
+  :after                     sly
+  :after                     helm-company
+  :config                   (global-helm-sly-mode)
+  :config                   (define-key sly-mode-map (kbd "<tab>") 'helm-company))
 (use-package                 lsp-mode
   :init                     (setq
 			     lsp-keymap-prefix "C-c l"))
@@ -228,6 +236,10 @@
 (add-to-list                 'default-frame-alist                   '(font . "MesloLGS NF"))
 (add-to-list                 'load-path                              (file-name-concat user-emacs-directory "spot4e"))
 (load                        "spot4e")
+
+(global-set-key (kbd "C-c C-s") (lambda () (interactive) (shell-command "kitty &")))
+(global-set-key (kbd "C-c C-f") (lambda () (interactive) (shell-command "firefox &")))
+(global-set-key (kbd "C-x C-g") 'eww)
 
 (run-with-timer 0 (* 60 59) 'spot4e-refresh)
 
