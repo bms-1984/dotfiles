@@ -5,7 +5,7 @@ Host aur
   IdentityFile "${CONFIG}/ssh/aur"
   User aur
   
-Host github
+Host github.com
   HostName github.com
   IdentityFile "${CONFIG}/ssh/id_ed25519"
   
