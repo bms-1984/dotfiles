@@ -1,12 +1,24 @@
-#config was last modified on September 19, 2022 at 05:26 PM EDT by bms#
-Host *
-  AddKeysToAgent yes
-Host aur.archlinux.org
-  IdentityFile ~/.config/ssh/aur
+#config was last modified on September 29, 2022 at 06:34 PM EDT by bms#
+
+Host aur
+  HostName aur.archlinux.org
+  IdentityFile "${CONFIG}/ssh/aur"
   User aur
-Host github.com
+  
+Host github
   HostName github.com
-  IdentityFile ~/.config/ssh/id_ed25519
-Host 69.164.214.165
-  IdentityFile ~/.config/ssh/linode
+  IdentityFile "${CONFIG}/ssh/id_ed25519"
+  
+Host repo
+  HostName 69.164.214.165
+  IdentityFile "${CONFIG}/ssh/linode"
+  RequestTTY force
+
+Host *
+  UserKnownHostsFile "${CONFIG}/ssh/known_hosts"
+  AddKeysToAgent yes
+  CheckHostIP yes
+  Compression yes
+  UpdateHostKeys yes
+
 #end

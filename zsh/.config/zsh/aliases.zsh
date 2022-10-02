@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 25, 2022 at 11:34 AM EDT by bms#
+#aliases.zsh was last modified on September 29, 2022 at 06:55 PM EDT by bms#
 alias emacs="${SCRIPTS:-$HOME/.scripts}/emacs.sh"
 alias e="emacs"
 alias sbcl="rlwrap sbcl --userinit ${CONFIG:-$HOME/.config}/sbcl/init.lisp"
@@ -10,7 +10,10 @@ alias zlog="${EDITOR:-emacs} ${ZDOTDIR:-$HOME/.config/zsh}/.zlogin"
 alias zali="${EDITOR:-emacs} ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh"
 alias zplug="${EDITOR:-emacs} ${ZDOTDIR:-$HOME/.config/zsh}/omz.zsh"
 alias make="remake"
-alias ssh="ssh -F ${CONFIG:-$HOME/.config}/ssh/config"
+ssh_config="${CONFIG:-$HOME/.config}/ssh/config"
+alias ssh="ssh -F $ssh_config"
+alias scp="scp -F $ssh_config"
+alias sftp="sftp -F $ssh_config"
 alias icat="kitty +kitten icat"
 alias neofetch="neofetch --kitty --source ${DOTFILES:-$HOME/.dotfiles}/arch.png"
 alias mkdir="mkdir -p"
