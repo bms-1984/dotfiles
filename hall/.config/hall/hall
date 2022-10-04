@@ -1,2 +1,4 @@
 (author . "Ben M. Sutter")
 (prefix . "guile")
+(website . "https://github.com/bms-1984/guile-todo")
+(license . gpl3+)

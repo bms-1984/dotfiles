@@ -1,6 +1,6 @@
 ;;;; init.el -- personal init file
 ;;; Commentary:
-;;;#init.el was last modified on September 27, 2022 at 03:48 PM EDT by bms#
+;;;#init.el was last modified on October 02, 2022 at 08:43 PM EDT by bms#
 ;;; Code:
 (defvar                      electrify-return-match
   "[\]}\)\"]"
@@ -237,8 +237,6 @@
 (add-to-list                 'load-path                              (file-name-concat user-emacs-directory "spot4e"))
 (load                        "spot4e")
 
-(global-set-key (kbd "C-c C-s") (lambda () (interactive) (shell-command "kitty &")))
-(global-set-key (kbd "C-c C-f") (lambda () (interactive) (shell-command "firefox &")))
 (global-set-key (kbd "C-x C-g") 'eww)
 
 (run-with-timer 0 (* 60 59) 'spot4e-refresh)
@@ -298,34 +296,5 @@
   "Run \"ansi-term\" with zsh."
   (interactive)
   (ansi-term "/bin/zsh"))
-
-(defun                       erc ()
-  "Run \"erc-tls\"."
-  (interactive)
-  (erc-tls))
-
-(custom-set-variables
- '(erc-autoaway-idle-method 'emacs)
- '(erc-autojoin-channels-alist
-   '(("libera.chat" "#archlinux" "#archlinux-aur" "#archlinux-pacman" "#archlinux-proaudio" "#archlinux-projects" "#archlinux-releng" "#archlinux-reproducible" "#archlinux-wiki" "#archlinux-offtopic")))
- '(erc-autojoin-timing 'ident)
- '(erc-email-userid "benjaminsutter@outlook.com")
- '(erc-generate-log-file-name-function 'erc-generate-log-file-name-long)
- `(erc-log-channels-directory ,(file-name-concat (getenv "CACHE") "erc/"))
- '(erc-modules
-   '(autoaway autojoin button completion fill irccontrols list log match menu move-to-prompt netsplit networks noncommands notifications readonly ring services stamp track))
- '(erc-nick "bms_n")
- '(erc-port 6697)
- '(erc-prompt-for-nickserv-password nil)
- '(erc-prompt-for-password nil)
- '(erc-rename-buffers t)
- '(erc-server "irc.us.libera.chat")
- '(erc-server-alist
-   '(("Freenode: Random US server" freenode "chat.us.freenode.net" 6667)
-     ("Libera.Chat: Random US & Canada server" Libera\.Chat "irc.us.libera.chat" 6667)))
- '(erc-system-name "Asahi")
- '(erc-use-auth-source-for-nickserv-password t)
- '(erc-user-full-name "Ben Sutter"))
-
 (provide                    'init)
 ;;; init.el ends here

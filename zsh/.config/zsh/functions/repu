@@ -1,0 +1,1 @@
+repo-add --new --verify --sign $REPO/benji.db.tar.zst $REPO/*.pkg.tar.zst

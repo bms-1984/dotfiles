@@ -1,4 +1,4 @@
-#aliases.zsh was last modified on September 29, 2022 at 06:55 PM EDT by bms#
+#aliases.zsh was last modified on October 02, 2022 at 07:20 PM EDT by bms#
 alias emacs="${SCRIPTS:-$HOME/.scripts}/emacs.sh"
 alias e="emacs"
 alias sbcl="rlwrap sbcl --userinit ${CONFIG:-$HOME/.config}/sbcl/init.lisp"
