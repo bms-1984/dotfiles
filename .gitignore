@@ -1,2 +1,4 @@
 #.gitignore was last modified on September 19, 2022 at 05:22 PM EDT by bms#
+cargo/.config/cargo/*
+!cargo/.config/cargo/config
 #end
