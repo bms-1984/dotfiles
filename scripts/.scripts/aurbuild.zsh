@@ -8,4 +8,4 @@ for dir in */; do
     popd || exit
 done
 popd || exit
-repo-add --new --verify --sign "$REPO/benji.db.tar.zst" "$REPO/*.pkg.tar.zst"
+repo-add --new --verify --sign $REPO/benji.db.tar.zst $REPO/*.pkg.tar.zst
