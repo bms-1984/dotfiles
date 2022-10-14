@@ -1,2 +1,2 @@
 #!/bin/sh
-[[ -f PKGBUILD ]] && makepkg --printsrcinfo > .SRCINFO
+[[ -f ./PKGBUILD ]] && makepkg --printsrcinfo > .SRCINFO
