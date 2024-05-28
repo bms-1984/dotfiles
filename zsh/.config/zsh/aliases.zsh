@@ -1,0 +1,7 @@
+alias sbcl="rlwrap sbcl --userinit ${CONFIG:-$HOME/.config}/sbcl/init.lisp"
+ssh_config="${CONFIG:-$HOME/.config}/ssh/config"
+alias ssh="ssh -F $ssh_config"
+alias scp="scp -F $ssh_config"
+alias sftp="sftp -F $ssh_config"
+alias mkdir="mkdir -p"
+alias ip="ip -color=auto"

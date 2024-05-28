@@ -1,0 +1,7 @@
+[user]
+	name = Ben Sutter
+	email = benjaminsutter@outlook.com
+[core]
+	autocrlf = input
+[color]
+    ui = true

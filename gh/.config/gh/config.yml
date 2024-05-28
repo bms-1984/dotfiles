@@ -1,0 +1,4 @@
+git_protocl: ssh
+editor: em
+prompt: enabled
+pager: less

@@ -1,0 +1,6 @@
+Host *
+  UserKnownHostsFile "${CONFIG}/ssh/known_hosts"
+  AddKeysToAgent yes
+  CheckHostIP yes
+  Compression yes
+  UpdateHostKeys yes
