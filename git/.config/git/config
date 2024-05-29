@@ -1,7 +1,12 @@
 [user]
 	name = Ben Sutter
 	email = benjaminsutter@outlook.com
+	signingkey = EEC70208760CEC3B
 [core]
 	autocrlf = input
 [color]
-    ui = true
+	ui = true
+[init]
+	defaultBranch = main
+[commit]
+	gpgsign = true

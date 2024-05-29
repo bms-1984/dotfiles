@@ -25,6 +25,7 @@
 (setq-default indicate-empty-lines t)
 (setq-default indicate-buffer-boundaries 'left)
 
+(setq dired-use-ls-dired nil)
 (setq-default require-final-newline t)
 (setq sentence-end-double-space nil)
 (setq-default indent-tabs-mode nil)
@@ -49,7 +50,7 @@
   (package-refresh-contents))
 
 (dolist (package '(exec-path-from-shell flycheck markdown-mode paredit rainbow-delimiters slime magit bison-mode
-                                        company company-quickhelp dirvish fancy-compilation all-the-icons
+                                        company company-quickhelp dirvish fancy-compilation
                                         flycheck-color-mode-line flycheck-pos-tip flycheck-pkg-config
                                         forge magit-todos org  org-bullets ox-gfm pinentry))
   (unless (package-installed-p package)
@@ -58,7 +59,7 @@
 (add-to-list 'exec-path "/usr/local/bin")
 (setq inferior-lisp-program "sbcl")
 
-(setq dirvish-attributes '(vc-state file-size git-msg collapse all-the-icons subtree-state))
+(setq dirvish-attributes '(vc-state file-size git-msg collapse subtree-state))
 (dirvish-override-dired-mode)
 
 (fancy-compilation-mode)
@@ -110,12 +111,12 @@
 (defvar electrify-return-match
   "[\]}\)\"]"
   "If this regexp matches the text after the cursor, do an \"electric\"
-  return.")
+return.")
 
 (defun electrify-return-if-match (arg)
   "If the text after the cursor matches `electrify-return-match' then
-  open and indent an empty line between the cursor and the text.  Move the
-  cursor to the new line."
+open and indent an empty line between the cursor and the text.  Move the
+cursor to the new line."
   (interactive "P")
   (let ((case-fold-search nil))
     (if (looking-at electrify-return-match)
@@ -126,16 +127,17 @@
 (require 'eldoc)
 
 (defun prog-hooks ()
-  "Initialize code modes"
+  "Initialize code modes."
   (display-line-numbers-mode t)
   (hs-minor-mode))
 
 (defun c-hooks ()
-  "Initialize C modes"
-  (turn-on-eldoc-mode))
+  "Initialize C modes."
+  (turn-on-eldoc-mode)
+  (prog-hooks))
 
 (defun lisp-hooks ()
-  "Initialize Lisp modes"
+  "Initialize Lisp modes."
   (enable-paredit-mode)
   (rainbow-delimiters-mode)
   (turn-on-eldoc-mode)
@@ -160,3 +162,5 @@
 								  (let ((buffer "*Async-native-compile-log*"))
 									(and (get-buffer buffer)
 									     (kill-buffer buffer)))))
+(provide 'init)
+;;; init.el ends here

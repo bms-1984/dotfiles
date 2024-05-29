@@ -1,6 +1,6 @@
 ;;; Always use quicklisp
 #-quicklisp
-(let ((quicklisp-init (merge-pathnames ".config/ql/setup.lisp"
+(let ((quicklisp-init (merge-pathnames ".config/quicklisp/setup.lisp"
                                        (user-homedir-pathname))))
   (when (probe-file quicklisp-init)
     (load quicklisp-init)))
