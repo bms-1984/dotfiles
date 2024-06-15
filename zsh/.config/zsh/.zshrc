@@ -1,4 +1,4 @@
-[[ -f ${ZDOTDIR:-$HOME/.config/zsh}/.zshenv ]] && source ${ZDOTDIR:-$HOME/.config/zsh}/.zshenv
+source $ZDOTDIR/.zshenv
 
 LISTMAX=0
 LOGCHECK=60
@@ -43,4 +43,10 @@ setopt \
     transient_rprompt \
     hist_ignore_space \
     no_equals
-[[ -f ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh ]] && source ${ZDOTDIR:-$HOME/.config/zsh}/aliases.zsh
+source $ZDOTDIR/aliases.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autopair/autopair.zsh
+source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source $(brew --prefix)/opt/zsh-git-prompt/zshrc.sh
+source $ZDOTDIR/.iterm2_shell_integration.zsh
+

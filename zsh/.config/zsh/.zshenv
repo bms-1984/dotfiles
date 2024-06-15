@@ -8,12 +8,6 @@ export HISTORY="$HOME/.history"
 export DOTFILES="$HOME/.dotfiles"
 export CONFIG="$HOME/.config"
 export LOCAL="$HOME/.local"
-export DATA="$LOCAL/share"
-export XDG="$CACHE/xdg"
-export XDG_CONFIG_HOME="$CONFIG"
-export XDG_CACHE_HOME="$CACHE"
-export XDG_DATA_HOME="$DATA"
-export XDG_RUNTIME_DIR="$XDG"
 export HISTFILE="$HISTORY/zsh"
 export LESSHISTFILE="$HISTORY/less"
 export LESS="-R --use-color"
@@ -28,7 +22,7 @@ typeset -Ux fpath
 path=( \
 	$LOCAL/bin \
 	/usr/local/bin \
-	/opt/homebrew/opt/ccache/libexec \
+	$(brew --prefix)/opt/ccache/libexec \
 	/Library/Frameworks/Python.framework/Versions/3.11/bin \
 	/opt/gradle/gradle-8.7/bin \
 	$path)
@@ -51,6 +45,7 @@ pkgconfigpath=( \
 	/usr/share/pkgconfig \
 	$pkgconfigpath)
 fpath=( \
-    ${ZDOTDIR:-$CONFIG/zsh}/functions \
+    $(brew --prefix)/share/zsh/site-functions \
+    $ZDOTDIR/functions \
     $fpath)
 fignore=(\~)

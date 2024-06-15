@@ -52,7 +52,7 @@
 (dolist (package '(exec-path-from-shell flycheck markdown-mode paredit rainbow-delimiters slime magit bison-mode
                                         company company-quickhelp dirvish fancy-compilation
                                         flycheck-color-mode-line flycheck-pos-tip flycheck-pkg-config
-                                        forge magit-todos org  org-bullets ox-gfm pinentry))
+                                        forge magit-todos org  org-bullets ox-gfm pinentry po-mode))
   (unless (package-installed-p package)
     (package-install package)))
 
