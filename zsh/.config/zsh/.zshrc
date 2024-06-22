@@ -43,7 +43,9 @@ setopt \
     transient_rprompt \
     hist_ignore_space \
     no_equals
+
 source $ZDOTDIR/aliases.zsh
+source $ZDOTDIR/secrets.zsh
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-autopair/autopair.zsh
 source $(brew --prefix)/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
