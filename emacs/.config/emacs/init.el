@@ -147,6 +147,7 @@ cursor to the new line."
    'paredit-backward-delete
    'paredit-close-round))
 
+(add-hook 'org-mode-hook 'auto-fill-mode)
 (add-hook 'emacs-lisp-mode-hook 'lisp-hooks)
 (add-hook 'eval-expression-minibuffer-setup-hook 'lisp-hooks)
 (add-hook 'ielm-mode-hook 'lisp-hooks)
