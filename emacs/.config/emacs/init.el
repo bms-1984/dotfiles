@@ -9,6 +9,7 @@
 (require 'benjimode)
 (require 'benjiorg)
 (require 'benjimisc)
+(require 'benjifun)
 (require 'custom)
 (require 'clhs-use-local)
 

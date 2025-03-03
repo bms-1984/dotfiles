@@ -54,7 +54,6 @@ cursor to the new line."
     (newline arg)
     (indent-according-to-mode)))
 
-(require 'eldoc)
 
 (defun prog-hooks ()
   "Initialize code modes."
@@ -77,14 +76,18 @@ cursor to the new line."
    'paredit-backward-delete
    'paredit-close-round))
 
+;(define-key paredit-mode-map (kbd "RET") nil)
+
 (add-hook 'org-mode-hook 'auto-fill-mode)
 (add-hook 'emacs-lisp-mode-hook 'lisp-hooks)
 (add-hook 'eval-expression-minibuffer-setup-hook 'lisp-hooks)
-(add-hook 'ielm-mode-hook 'lisp-hooks)
+;(add-hook 'ielm-mode-hook 'lisp-hooks)
 (add-hook 'lisp-interaction-mode-hook 'lisp-hooks)
 (add-hook 'lisp-mode-hook 'lisp-hooks)
 (add-hook 'slime-repl-mode-hook 'lisp-hooks)
 (add-hook 'slime-repl-mode-hook 'override-slime-del-key)
+(add-hook 'scheme-mode 'lisp-hooks)
+;(add-hook 'geiser-repl-startup-hook 'lisp-hooks)
 (add-hook 'c-mode-common-hook 'c-hooks)
 (add-hook 'prog-mode 'prog-hooks)
 

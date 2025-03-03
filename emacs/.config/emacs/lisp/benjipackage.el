@@ -11,7 +11,7 @@
                   flycheck markdown-mode paredit rainbow-delimiters slime magit bison-mode
                   company company-quickhelp dirvish fancy-compilation flycheck-color-mode-line
                   flycheck-pos-tip flycheck-pkg-config forge magit-todos
-                  org org-bullets ox-gfm pinentry po-mode)))
+                  org org-bullets ox-gfm pinentry po-mode geiser-guile)))
   (dolist (package packages)
     (unless (package-installed-p package)
       (package-install package))))
