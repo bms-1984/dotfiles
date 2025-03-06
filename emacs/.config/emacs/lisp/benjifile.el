@@ -5,6 +5,6 @@
 (setq create-lockfiles nil)
 (setq custom-file (expand-file-name "lisp/custom.el" user-emacs-directory))
 
-(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
 
 (provide 'benjifile)
