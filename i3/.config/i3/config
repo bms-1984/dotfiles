@@ -149,6 +149,7 @@ bindsym $mod+Shift+9 move container to workspace number $ws9
 bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+e exec editor
+bindsym $mod+Shift+f exec firefox
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
