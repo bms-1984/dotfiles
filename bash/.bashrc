@@ -50,4 +50,9 @@ fi
 export GPG_TTY=$(tty)
 export SSH_AGENT_PID=""
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
+
+export GUILE_LOAD_PATH="/usr/local/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/usr/local/lib/guile/3.0/site-ccache"
+
 PS1='\u@\h:\w$(__git_ps1 " (%s)") \$ '
+
